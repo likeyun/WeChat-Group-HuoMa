@@ -1,0 +1,69 @@
+
+/*// 里客云科技开发
+// www.likeyun.cn
+// 作者：TANKING
+// 请保留版权信息
+// 仅用于学习用途
+// 基于php5.6开发
+// 前端使用Bootstrap4.0*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*适应PC端 宽度大于1000px*/
+@media screen and (min-width: 1000px) {
+	.container{
+		width: 30%;
+	}
+
+	.container button{
+		width: 100%;
+	}
+
+	.container .Result{
+		margin-top:20px;
+		display: none;
+	}
+}
+
+
+
+/*适应pad端 宽度在640-1000之间*/
+@media screen and (min-width: 640px) and (max-width: 1000px) {
+	.container{
+		width: 80%;
+	}
+
+	.container h1{
+		font-size: 40px;
+	}
+
+	.container button{
+		width: 100%;
+	}
+
+	.container .Result{
+		margin-top:20px;
+		display: none;
+	}
+}
+
+@media screen and (max-width: 639px){
+	.container{
+		width: 90%;
+	}
+
+	.container h1{
+		font-size: 30px;
+	}
+
+	.container button{
+		width: 100%;
+	}
+
+	.container .Result{
+		margin-top:20px;
+		display: none;
+	}
+}
