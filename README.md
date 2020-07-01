@@ -15,7 +15,11 @@
 还要把qun_huoma.sql导入到你的数据库
 
 # 访问
+```
 http://域名/代码所在目录/admin
+例如你的代码放在服务器根目录下的huoma文件夹，那么后台访问地址是
+http://www.xxx.com/huoma/admin
+```
 
 ```
 <?php
