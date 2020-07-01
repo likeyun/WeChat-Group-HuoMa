@@ -1,11 +1,4 @@
 <?php
-// 里客云科技开发
-// www.likeyun.cn
-// 作者：TANKING
-// 请保留版权信息
-// 仅用于学习用途
-// 基于php5.6开发
-// 前端使用Bootstrap4.0
 header("Content-type:application/json");
 // 数据库配置
 require_once("../MySql.php");
