@@ -123,7 +123,7 @@ function addqun(){
           setTimeout('closesctips()', 2000);
         }
     });
-        }
+  }
 </script>
 </body>
 </html>
