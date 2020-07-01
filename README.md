@@ -14,6 +14,9 @@
 只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456
 还要把qun_huoma.sql导入到你的数据库
 
+# 访问
+http://域名/代码所在目录/admin
+
 ```
 <?php
 // 基于php5.6开发
