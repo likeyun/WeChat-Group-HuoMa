@@ -8,7 +8,7 @@
 ![添加群活码](https://common-fd.zol-img.com.cn/g1/M06/04/04/ChMljl77EwSIdr40AAC7igqlce4AAQRGADKhRUAALui682.jpg "添加群活码")
 
 # 活码界面
-<img src="https://common-fd.zol-img.com.cn/g4/M01/03/04/ChMlzF77FFeICOI_AAJ2XZqNY1wAAYbdAPe0n0AAnZ1124.jpg" width="400"/>
+<img src="https://common-fd.zol-img.com.cn/g1/M09/04/0A/ChMljV78UCSIRkr-AADvZ7CurlQAAQSdwMlsWkAAO9_814.jpg" width="400"/>
 
 # 使用方法
 只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库
