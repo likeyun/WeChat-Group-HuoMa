@@ -11,8 +11,7 @@
 <img src="https://common-fd.zol-img.com.cn/g4/M01/03/04/ChMlzF77FFeICOI_AAJ2XZqNY1wAAYbdAPe0n0AAnZ1124.jpg" width="400"/>
 
 # 使用方法
-只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456
-还要把qun_huoma.sql导入到你的数据库
+只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库
 
 # 访问
 ```
@@ -20,6 +19,8 @@ http://域名/代码所在目录/admin
 例如你的代码放在服务器根目录下的huoma文件夹，那么后台访问地址是
 http://www.xxx.com/huoma/admin
 ```
+
+# 配置
 
 ```
 <?php
