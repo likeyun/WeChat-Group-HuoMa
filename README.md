@@ -30,7 +30,7 @@ $url = dirname(dirname($SERVER))."/page-".$hm_id.".html";
 ```
 修改为
 ```
-$url = dirname(dirname($SERVER))."index.php?hmid=".$hm_id;
+$url = dirname(dirname($SERVER))."/index.php?hmid=".$hm_id;
 ```
 
 # 配置
