@@ -23,8 +23,17 @@ http://www.xxx.com/huoma/admin
 # 遇到数据库无法导入的问题，自己手动建表吧
 <img src="http://pic.iask.cn/fimg/743365032832.jpg" width="600"/>
 
-# 配置
+# 如果你的服务器不支持我的伪静态规则
+我的是Apache的伪静态，如果你会写自己服务器的伪静态就自己写，不懂的话就修改代码，修改share.php
+```
+$url = dirname(dirname($SERVER))."/page-".$hm_id.".html";
+```
+修改为
+```
+$url = dirname(dirname($SERVER))."index.php?hmid=".$hm_id;
+```
 
+# 配置
 ```
 <?php
 // 基于php5.6开发
