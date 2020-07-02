@@ -20,6 +20,9 @@
 http://www.xxx.com/huoma/admin
 ```
 
+# 遇到数据库无法导入的问题，自己手动建表吧
+<img src="http://pic.iask.cn/fimg/743365032832.jpg" width="600"/>
+
 # 配置
 
 ```
