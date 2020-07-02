@@ -38,5 +38,4 @@ $adminpassword = "admin123456";
 ?>
 ```
 
-# 加入交流群，后续更新版本
-<img src="http://qr.topscan.com/api.php?text=http://www.likeyunba.com/demo/huoma/page-35000.html" width="400"/>
+
