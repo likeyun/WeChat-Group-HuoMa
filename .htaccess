@@ -1,0 +1,3 @@
+RewriteEngine On
+#RewriteBase / 
+RewriteRule ^page-(\d+)\.html$ index.php?hmid=$1
