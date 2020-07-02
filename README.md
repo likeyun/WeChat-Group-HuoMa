@@ -11,7 +11,7 @@
 <img src="https://common-fd.zol-img.com.cn/g1/M09/04/0A/ChMljV78UCSIRkr-AADvZ7CurlQAAQSdwMlsWkAAO9_814.jpg" width="400"/>
 
 # 使用方法
-只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库
+只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库，要求php5.5-5.6版本。
 
 # 访问
 ```
