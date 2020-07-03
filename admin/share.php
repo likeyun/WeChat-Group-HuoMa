@@ -3,7 +3,7 @@ header("Content-type:application/json");
 session_start();
 if(isset($_SESSION["huoma.admin"])){
 
-	// 数据库配置
+	// 数据库
 	require_once("../MySql.php");
 
 	// 创建连接
