@@ -15,66 +15,90 @@
 	<meta name="format-detection" content="telephone=no">
 </head>
 <body>
-	<!-- 顶部安全提示 -->
-	<div id="safety-tips">
-		<!-- 安全图标 -->
-		<div class="safety-icon">
-			<img src="images/safety-icon.png" />
-		</div>
-		
-		<!-- 安全提示标题 -->
-		<div class="safety-title">此二维码已通过安全认证，可以放心扫码</div>
-	</div>
 
 	<?php
-	// 数据库配置
-	require_once("MySql.php");
-
 	$hmid = $_GET["hmid"];
-	 
-	// 创建连接
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-	    die("连接失败: " . $conn->connect_error);
-	} 
-	 
-	$sql = "SELECT * FROM qun_huoma WHERE hm_id =".$hmid;
-	$result = $conn->query($sql);
+	if (empty($hmid)) {
+		echo "<h2 style='text-align:center;margin-top:50px;'>请在管理后台添加活码后，点击分享，微信扫码即可查看你的活码</h2>";
+	}else{
+		echo '<div id="safety-tips">
+			 <div class="safety-icon">
+				<img src="images/safety-icon.png" />
+			 </div>
+			 <div class="safety-title">此二维码已通过安全认证，可以放心扫码</div>
+	         </div>';
 
-	// 更新访问量
-	mysqli_query($conn,"UPDATE qun_huoma SET page_view=page_view+1 WHERE hm_id =".$hmid);
-	 
-	if ($result->num_rows > 0) {
-	    // 输出数据
-	    while($row = $result->fetch_assoc()) {
-		   
-		    $title  = $row["title"];
-		    $update_time  = $row["update_time"];
-		    $qun_qrcode  = $row["qun_qrcode"];
-		    $wx_qrcode  = $row["wx_qrcode"];
-		    $wxid  = $row["wxid"];
+		// 数据库配置
+		require_once("MySql.php");
+		 
+		// 创建连接
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		if ($conn->connect_error) {
+		    die("连接失败: " . $conn->connect_error);
+		} 
+		 
+		$sql = "SELECT * FROM qun_huoma WHERE hm_id =".$hmid;
+		$result = $conn->query($sql);
 
-		    echo "<title>".$title."</title>";
+		// 更新访问量
+		mysqli_query($conn,"UPDATE qun_huoma SET page_view=page_view+1 WHERE hm_id =".$hmid);
+		 
+		if ($result->num_rows > 0) {
+		    // 输出数据
+		    while($row = $result->fetch_assoc()) {
+			   
+			    $title  = $row["title"];
+			    $update_time  = $row["update_time"];
+			    $qun_qrcode  = $row["qun_qrcode"];
+			    $wx_qrcode  = $row["wx_qrcode"];
+			    $wxid  = $row["wxid"];
 
-			echo '<div id="ewmcon">
-				<img src="'.$qun_qrcode.'" />
-			</div>
+			    echo "<title>".$title."</title>";
 
-			<div id="tips-text">若群二维码提示"该群已开启群验证，只可通过邀请进群"或"群聊人数超过200人，只可通过邀请进群"，可以联系下方微信，我们会邀请你入群。</div>
+				echo '<div id="ewmcon">
+					<img src="'.$qun_qrcode.'" />
+				</div>
 
-			<div id="grwx">
-				<img src="'.$wx_qrcode.'" />
-			</div>
+				<div id="tips-text">若群二维码提示"该群已开启群验证，只可通过邀请进群"或"群聊人数超过200人，只可通过邀请进群"，可以联系下方微信，我们会邀请你入群。</div>
 
-			<div id="wechatid">微信号：'.$wxid.'</div>';
-	    }
-	} else {
-	    echo "不存在该页面";
+				<div id="grwx">
+					<img src="'.$wx_qrcode.'" />
+				</div>
+
+				<div id="copy">
+					<div class="wxid" id="wxid">'.$wxid.'</div>
+					<div class="copybtn" id="cpwxid">复制微信号</div>
+				</div>';
+		    }
+		} else {
+		    echo "不存在该页面";
+		}
+		$conn->close();
 	}
-	$conn->close();
 	?>
 
 	<!-- 底部占位 -->
 	<div id="zhanwei"></div>
+
+	<!-- 复制 -->
+    <script>
+    function copyArticle(event){
+      const range = document.createRange();
+      range.selectNode(document.getElementById('wxid'));
+      const selection = window.getSelection();
+      if(selection.rangeCount > 0) selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      // $("#copytips .success").css("display","block");
+      // $("#tkl .copy").text("已复制");
+      // setTimeout('hide()', 2000);
+      alert("已复制");
+      
+    }
+    window.onload = function () {
+      var obt = document.getElementById("copy");
+      obt.addEventListener('click', copyArticle, false);
+    }
+    </script>
 </body>
 </html>
