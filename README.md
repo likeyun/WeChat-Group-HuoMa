@@ -69,6 +69,9 @@ $adminpassword = "admin123456";
 # 交流群
 ![二维码](https://common-fd.zol-img.com.cn/g5/M00/0C/0E/ChMkJl7-mZGIMqAqAABIBLxlQOYAAwkAALchAEAAEgc646.jpg "二维码")
 
+# 赞赏
+<img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
+
 # 温馨提示
 以上图片如果不显示，很有可能是你电脑的host文件没有添加以下ip，请自行设置，再刷新页面。
 
