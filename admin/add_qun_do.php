@@ -56,7 +56,7 @@ if(isset($_SESSION["huoma.admin"])){
 		} else {
 		    $result = array(
 				"result" => "106",
-				"msg" => "添加失败，数据库发生错误"
+				"msg" => "添加失败，请检查数据库配置是否正确"
 			);
 		}
 		 
