@@ -68,3 +68,14 @@ $adminpassword = "admin123456";
 
 # 交流群
 ![二维码](https://common-fd.zol-img.com.cn/g5/M00/0C/0E/ChMkJl7-mZGIMqAqAABIBLxlQOYAAwkAALchAEAAEgc646.jpg "二维码")
+
+# 温馨提示
+以上图片如果不显示，很有可能是你电脑的host文件没有添加以下ip，请自行设置，再刷新页面。
+
+1、找到目录C:\Windows\System32\drivers\etc\hosts
+2、编辑host，在最下方粘贴下面ip地址
+```
+199.232.68.133 raw.githubusercontent.com
+199.232.68.133 githubusercontent.com
+```
+3、保存
