@@ -20,7 +20,7 @@ if(isset($_SESSION["huoma.admin"])){
 	}else{
 		// 生成网址
 		$SERVER='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"];
-		$url = dirname(dirname($SERVER))."/page-".$hm_id.".html";
+		$url = dirname(dirname($SERVER))."/index.php?hmid=".$hm_id;
 		$result = array(
 			"result" => "100",
 			"msg" => "生成成功",
