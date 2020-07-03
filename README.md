@@ -45,4 +45,4 @@ $adminpassword = "admin123456";
 ```
 
 # 交流群
-<img src="https://p.pstatp.com/origin/fe6b0001f6915beb612a"/>
+![二维码](https://common-fd.zol-img.com.cn/g5/M00/0C/0E/ChMkJl7-mZGIMqAqAABIBLxlQOYAAwkAALchAEAAEgc646.jpg "二维码")
