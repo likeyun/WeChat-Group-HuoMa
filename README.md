@@ -25,6 +25,7 @@ admin/index.php<br/>
 # 新增：<br/>
 admin/upload.php<br/>
 admin/upload/ （这是文件夹，用于存放本地上传的图片）<br/>
+数据库需要新增wxstatus字段（varchar 32 ）
 
 # 后台界面
 ![后台首页](https://github.com/likeyun/TANKING/blob/master/qunhuoma-index.png)
