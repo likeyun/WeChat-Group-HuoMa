@@ -1,13 +1,3 @@
-<?php
-// 里客云科技开发
-// www.likeyun.cn
-// 作者：TANKING
-// 请保留版权信息
-// 仅用于学习用途
-// 基于php5.6开发
-// 前端使用Bootstrap4.0
-header("Content-type:text/html;charset=utf-8");
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +10,21 @@ header("Content-type:text/html;charset=utf-8");
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <link rel="icon" href="https://bit-images.bj.bcebos.com/bit-new/file/20200629/3vum.jpg" type="image/x-icon" />
+   <style type="text/css">
+  /*添加群活码*/
+  .modal .modal-dialog .modal-content .modal-body .btn{
+    position: relative;
+  }
+
+  .modal .modal-dialog .modal-content .modal-body .file_btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  </style>
 </head>
 <body style="background:#fff;">
 <div class="container">
@@ -39,6 +44,7 @@ header("Content-type:text/html;charset=utf-8");
   <div class="tab-content">
     <div id="home" class="tab-pane active"><br>
 	    <?php
+	        header("Content-type:text/html;charset=utf-8");
 	    	session_start();
 			if(isset($_SESSION["huoma.admin"])){
 
