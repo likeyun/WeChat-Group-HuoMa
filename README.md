@@ -6,6 +6,26 @@
 # 作者博客
 http://www.likeyun.cn/
 
+# 更新日志
+版本：v2.0.0<br/>
+`1、新增本地图片上传`<br/>
+`2、优化Ui`<br/>
+`3、新增个人微信二维码和微信号的显示隐藏开关`<br/>
+`4、修复上一版本的Bug`<br/>
+
+本次更新需要在上一版本的基础上替换和新增以下文件<br/>
+# 替换：<br/>
+index.php<br/>
+admin/add_qun.php<br/>
+admin/add_qun_do.php<br/>
+admin/edi_qun.php<br/>
+admin/edi_qun_do.php<br/>
+admin/index.php<br/>
+
+# 新增：<br/>
+admin/upload.php<br/>
+admin/upload/ （这是文件夹，用于存放本地上传的图片）<br/>
+
 # 后台界面
 ![后台首页](https://github.com/likeyun/TANKING/blob/master/qunhuoma-index.png)
 ![分享群活码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-share.png)
