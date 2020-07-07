@@ -7,13 +7,15 @@
 http://www.likeyun.cn/
 
 # 后台界面
-![后台首页](https://common-fd.zol-img.com.cn/g1/M05/04/04/ChMljV77EfWINIFHAACFTDv0yZUAAQRFwNyeWMAAIVk111.jpg "后台首页")
+![后台首页](https://github.com/likeyun/TANKING/blob/master/qunhuoma-index.png)
+![分享群活码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-share.png)
 
 # 添加群活码界面
-![添加群活码](https://common-fd.zol-img.com.cn/g1/M06/04/04/ChMljl77EwSIdr40AAC7igqlce4AAQRGADKhRUAALui682.jpg "添加群活码")
+![添加群活码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-add.png)
+![上传二维码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-upload.png)
 
 # 活码界面
-<img src="https://common-fd.zol-img.com.cn/g1/M09/04/0A/ChMljV78UCSIRkr-AADvZ7CurlQAAQSdwMlsWkAAO9_814.jpg" width="400"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/qunhuoma-page.jpg" width="400"/>
 
 # 使用方法
 只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库，要求php5.5-5.6版本。
@@ -26,7 +28,6 @@ http://www.xxx.com/huoma/admin
 ```
 
 # 遇到数据库无法导入的问题，自己手动建表吧
-<img src="http://pic.iask.cn/fimg/743365032832.jpg" width="600"/>
 
 SQL语句
 ```
