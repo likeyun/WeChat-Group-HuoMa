@@ -26,7 +26,7 @@ css/style.css
 # 新增：<br/>
 admin/upload.php<br/>
 admin/upload/ （这是文件夹，用于存放本地上传的图片）<br/>
-数据库需要新增wxstatus字段（varchar 32 ）
+数据库需要新增字段名：wxstatus `varchar(32)` （该字段是用于设置显示或隐藏个人微信）
 
 # 后台界面
 ![后台首页](https://github.com/likeyun/TANKING/blob/master/qunhuoma-index.png)
@@ -75,8 +75,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 ```
 
 # 各类问题解决
-<br/>`1、请保持php5.5以上环境`<br/>
-`2、数据库无法正常导入，请看上图自己建表，表名是qun_huoma`<br/>
+1、请保持php5.5以上环境<br/>
+2、数据库无法正常导入，请看上图自己建表，表名：`qun_huoma`
 
 # 配置
 ```
