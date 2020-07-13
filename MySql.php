@@ -8,6 +8,10 @@ $dbname = "";//数据库名
 $adminusername = "admin";
 $adminpassword = "admin123456";
 
-//活码交流群
-//请访问链接，微信扫码：https://p.pstatp.com/origin/fe6b0001f6915beb612a
+//活码交流群，有问题进群解决
+//请访问链接，微信扫码：http://p4.qhimg.com/t0175ac38b108c15592.jpg
+//活码交流群，有问题进群解决
+//请访问链接，微信扫码：http://p4.qhimg.com/t0175ac38b108c15592.jpg
+//活码交流群，有问题进群解决
+//请访问链接，微信扫码：http://p4.qhimg.com/t0175ac38b108c15592.jpg
 ?>
