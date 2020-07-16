@@ -1,0 +1,155 @@
+
+/*// 里客云科技开发
+// www.likeyun.cn
+// 作者：TANKING
+// 请保留版权信息
+// 仅用于学习用途
+// 基于php5.6开发
+// 前端使用Bootstrap4.0*/
+*{
+	margin:0;
+	padding:0;
+	font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+}
+
+body{
+	background: #eee;
+}
+
+#safety-tips{
+	width: 100%;
+	height: 50px;
+	background: rgb(241, 249, 236);
+	overflow: hidden;
+}
+
+#safety-tips .safety-icon{
+	width: 20px;
+	height: 20px;
+	margin:15px 5px 15px 15px;
+	float: left;
+}
+
+#safety-tips .safety-icon img{
+	width: 20px;
+	height: 20px;
+}
+
+
+#safety-tips .safety-title{
+	line-height: 50px;
+	font-size: 14px;
+	color:#07C160;
+	float: left;
+}
+
+#ewmcon{
+	width: 85%;
+	margin:30px auto 0;
+}
+
+
+#ewmcon img{
+	width: 100%;
+}
+
+#tips-text{
+	width: 88%;
+	margin:20px auto;
+	color:#999;
+	font-size: 13px;
+	text-align: justify;
+	line-height: 25px;
+}
+
+
+#grwx{
+	width: 180px;
+	height: 180px;
+	margin:20px auto 10px;
+}
+
+
+#grwx img{
+	width: 180px;
+	height: 180px;
+}
+
+
+#wechatid{
+	background: rgb(241, 249, 236);
+	line-height: 35px;
+	display: inline-block;
+	padding:5px 20px;
+	position: absolute;
+	left: 50%;
+	transform:translate(-50%,0);
+	font-size: 14px;
+	color: #07C160;
+	border-radius: 100px;
+	margin-bottom: 100px;
+}
+
+#zhanwei{
+	width: 100%;
+	height: 50px;
+	margin-top: 50px;
+}
+
+
+#copy{
+	width: 100%;
+	height: 70px;
+	background: #fff;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid #eee;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+
+#copy .wxid{
+	width: 60%;
+	height: 70px;
+	text-indent: 15px;
+	line-height: 70px;
+	font-size: 18px;
+	color: #07c160;
+	font-weight: bold;
+	float: left;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+
+#copy .copybtn{
+	width: 26%;
+	float: right;
+	background: #07c160;
+	color: #fff;
+	height: 45px;
+	font-size: 15px;
+	border-radius: 100px;
+	line-height: 46px;
+	text-align: center;
+	font-weight: bold;
+	margin-right: 15px;
+	margin-top: 13px;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);
+	box-shadow: 0 5px 15px rgba(7,193,96,0.3);
+}
+
+/*ADMIN*/
+.container h2{
+	margin-top: 50px;
+}
+
+.container .nav-pills .nav-item .active{
+	background: #333;
+}
+
+
+.container .nav-pills a{
+	color: #333;
+}
+
+.container .nav-pills .add-qun-huoma{
+	float: right;
+}
