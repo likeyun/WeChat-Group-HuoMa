@@ -29,15 +29,11 @@
 	         </div>';
 
 		// 数据库配置
-        $mysql = file_get_contents("./admin.json");
-        $mysql_arr = json_decode($mysql,true);
-        $servername = $mysql_arr["dbservername"];
-        $username = $mysql_arr["dbusername"];
-        $password = $mysql_arr["dbpassword"];
-        $dbname = $mysql_arr["dbname"];
-		 
+		include './MySql.php';
+
 		// 创建连接
-		$conn = new mysqli($servername, $username, $password, $dbname);
+		$conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
+
 		if ($conn->connect_error) {
 		    die("连接失败: " . $conn->connect_error);
 		} 
