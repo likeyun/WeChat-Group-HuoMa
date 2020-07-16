@@ -1,46 +1,38 @@
 # WeChat-Group-HuoMa
 微信群二维码活码工具，生成微信群活码，随时可以切换二维码！微信官方群二维码有效期是7天，过期后无法扫码进群，或者是群人数满200人就无法扫码进群，如果我们在推广的时候，群满人或者过期了，别人还想进群，我们将会失去很多推广效果，所以有了群活码，可以在不更换链接和二维码的前提下，切换扫码后显示的内容，灵活变换！
 
-<img src="https://raw.githubusercontent.com/likeyun/TANKING/master/timg.jpg" width="500" />
+<img src="https://raw.githubusercontent.com/likeyun/TANKING/master/timg.jpg" width="700" />
 
 # 作者博客
 http://www.likeyun.cn/
 
 # 更新日志
-版本：v2.0.0<br/>
-`1、新增本地图片上传`<br/>
-`2、优化Ui`<br/>
-`3、新增个人微信二维码和微信号的显示隐藏开关`<br/>
-`4、修复上一版本的Bug`<br/>
+版本：v3.0.0<br/>
+`1、新增备用群二维码`<br/>
+`2、新增峰值，达到峰值自动切换群二维码`<br/>
+`3、该版本改用一键安装模式`<br/>
 
-本次更新需要在上一版本的基础上替换和新增以下文件<br/>
-# 替换：<br/>
-index.php<br/>
-admin/add_qun.php<br/>
-admin/add_qun_do.php<br/>
-admin/edi_qun.php<br/>
-admin/edi_qun_do.php<br/>
-admin/index.php<br/>
-css/style.css
+本次更新与前2个版本不兼容，所以需要重新安装，安装前请到你的数据库把原来的数据表`qun_huoma`做好备份，以便安装完成后，恢复原有的数据，备份后，需要删除数据表`qun_huoma`，否则安装不能成功！<br/>
 
-# 新增：<br/>
-admin/upload.php<br/>
-admin/upload/ （这是文件夹，用于存放本地上传的图片）<br/>
-数据库需要新增字段名：wxstatus `varchar(32)` （该字段是用于设置显示或隐藏个人微信）
+# 安装步骤
+`1、把所有代码上传到服务器`<br/>
+`2、访问install文件夹安装`<br/>
+`例如、http://www.abc.com/huoma/install`<br/>
+
+只需要输入数据库和管理员相关信息，即可快速安装，如果安装失败，请检查数据库配置是否填写正确。
+
+![安装界面](https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716112614.png?raw=true)
 
 # 后台界面
-![后台首页](https://github.com/likeyun/TANKING/blob/master/qunhuoma-index.png)
-![分享群活码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-share.png)
+![后台首页](https://github.com/likeyun/TANKING/blob/master/20200716-add.png)
+![分享群活码](https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716113948.png)
 
 # 添加群活码界面
-![添加群活码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-add.png)
-![上传二维码](https://github.com/likeyun/TANKING/blob/master/qunhuoma-upload.png)
+![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113531.png)
+![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113652.png)
 
 # 活码界面
 <img src="https://github.com/likeyun/TANKING/blob/master/qunhuoma-page.jpg" width="400"/>
-
-# 使用方法
-只需要修改MySql.php的数据库配置和后台账号密码即可，后台账号默认是admin，密码admin123456 ，还要把qun_huoma.sql导入到你的数据库，要求php5.5-5.6版本。
 
 # 访问
 ```
@@ -49,54 +41,8 @@ admin/upload/ （这是文件夹，用于存放本地上传的图片）<br/>
 http://www.xxx.com/huoma/admin
 ```
 
-# 遇到数据库无法导入的问题，自己手动建表吧
-
-SQL语句
-```
-SET FOREIGN_KEY_CHECKS = 0;
-
-DROP TABLE IF EXISTS  `qun_huoma`;
-CREATE TABLE `qun_huoma` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `hm_id` varchar(32) DEFAULT NULL COMMENT '活码id',
-  `title` varchar(32) DEFAULT NULL COMMENT '标题',
-  `qun_qrcode` text COMMENT '群二维码',
-  `wx_qrcode` text COMMENT '微信二维码',
-  `creat_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` varchar(32) DEFAULT '' COMMENT '更新时间',
-  `wxid` varchar(32) DEFAULT NULL COMMENT '微信号',
-  `page_view` varchar(32) DEFAULT '0' COMMENT '访问量',
-  `biaoqian` varchar(32) DEFAULT NULL COMMENT '标签',
-  `wxstatus` varchar(32) DEFAULT NULL COMMENT '是否隐藏微信号',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
-
-SET FOREIGN_KEY_CHECKS = 1;
-```
-
-# 各类问题解决
-1、请保持php5.5以上环境<br/>
-2、数据库无法正常导入，请看上图自己建表，表名：`qun_huoma`
-
-# 配置
-```
-<?php
-// 基于php5.5开发
-// 前端使用Bootstrap4.0
-
-$servername = "";//数据库地址
-$username = "";//数据库账号
-$password = "";//数据库密码
-$dbname = "";//数据库名
-
-// 后台账号密码
-$adminusername = "admin";
-$adminpassword = "admin123456";
-?>
-```
-
-# 交流群
-![二维码](https://common-fd.zol-img.com.cn/g5/M00/0C/0E/ChMkJl7-mZGIMqAqAABIBLxlQOYAAwkAALchAEAAEgc646.jpg "二维码")
+# 活码交流群
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200716114242.jpg" width="400"/>
 
 # 赞赏
 <img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
