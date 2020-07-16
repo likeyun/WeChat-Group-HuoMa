@@ -5,6 +5,8 @@
 
 # 作者博客
 http://www.likeyun.cn/
+# 交流群
+http://pic.iask.cn/fimg/681565120779.jpg
 
 # 更新日志
 版本：v3.0.0<br/>
