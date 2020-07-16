@@ -1,14 +1,8 @@
 <?php
 header("Content-type:application/json");
+
 // 数据库配置
-$mysql = file_get_contents("../admin.json");
-$mysql_arr = json_decode($mysql,true);
-$servername = $mysql_arr["dbservername"];
-$username = $mysql_arr["dbusername"];
-$password = $mysql_arr["dbpassword"];
-$dbname = $mysql_arr["dbname"];
-$adminusername = $mysql_arr["adminuser"];
-$adminpassword = $mysql_arr["adminpwd"];
+include '../MySql.php';
 
 $adminuser = $_POST["user"];
 $adminpsw = $_POST["pwd"];
@@ -28,7 +22,7 @@ if($adminuser == "" && $adminpsw == ""){
 		"result" => "103",
 		"msg" => "密码不得为空"
 	);
-}else if ($adminuser == $adminusername && $adminpsw == $adminpassword){
+}else if ($adminuser == $admin_user && $adminpsw == $admin_pwd){
 	$result = array(
 		"result" => "100",
 		"msg" => "登录成功"

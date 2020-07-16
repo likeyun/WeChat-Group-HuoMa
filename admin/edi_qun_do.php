@@ -4,15 +4,10 @@ session_start();
 if(isset($_SESSION["huoma.admin"])){
 
 	// 数据库配置
-    $mysql = file_get_contents("../admin.json");
-    $mysql_arr = json_decode($mysql,true);
-    $servername = $mysql_arr["dbservername"];
-    $username = $mysql_arr["dbusername"];
-    $password = $mysql_arr["dbpassword"];
-    $dbname = $mysql_arr["dbname"];
+	include '../MySql.php';
 
 	// 创建连接
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
 
 	// 获得表单POST过来的数据
 	$title = $_POST["title"];
@@ -48,7 +43,7 @@ if(isset($_SESSION["huoma.admin"])){
 		);
 	}else{
 		// 当前时间
-		$date = date("Y-m-d G:H:s");
+		$date = date('Y-m-d');
 		// 更新数据库
 		mysqli_query($conn,"UPDATE qun_huoma SET title='$title',qun_qrcode='$qun_qrcode',wx_qrcode='$wx_qrcode',wxid='$wxid',biaoqian='$biaoqian',update_time='$date',wxstatus='$wxstatus',byqun_status='$byqun_status',byqun_qrcode='$byqun_qrcode',byqun_maxnum='$byqun_maxnum' WHERE hm_id=".$hm_id);
 		$result = array(

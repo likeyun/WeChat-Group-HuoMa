@@ -47,16 +47,11 @@
 	    session_start();
 			if(isset($_SESSION["huoma.admin"])){
 
-				// 数据库配置
-        $mysql = file_get_contents("../admin.json");
-        $mysql_arr = json_decode($mysql,true);
-        $servername = $mysql_arr["dbservername"];
-        $username = $mysql_arr["dbusername"];
-        $password = $mysql_arr["dbpassword"];
-        $dbname = $mysql_arr["dbname"];
+        // 数据库配置
+        include '../MySql.php';
 
-				// 创建连接
-				$conn = new mysqli($servername, $username, $password, $dbname);
+        // 创建连接
+        $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
 				
 				// 检查连接
 				if ($conn->connect_error) {
