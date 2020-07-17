@@ -50,7 +50,7 @@ http://www.xxx.com/huoma/admin
 <img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
 
 # 温馨提示
-以上图片如果不显示，很有可能是你电脑的host文件没有添加以下ip，请自行设置，再刷新页面。
+以上图片如果不显示，可以尝试给你电脑的host文件添加以下ip，添加后保存，再刷新页面。
 
 1、找到目录C:\Windows\System32\drivers\etc\hosts
 2、编辑host，在最下方粘贴下面ip地址
