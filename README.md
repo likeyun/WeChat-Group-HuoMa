@@ -44,7 +44,7 @@ http://www.xxx.com/huoma/admin
 ```
 
 # 活码交流群
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200716114242.jpg" width="400"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200721143656.jpg?raw=true" width="400"/>
 
 # 赞赏
 <img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
