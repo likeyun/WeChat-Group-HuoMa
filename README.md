@@ -6,7 +6,7 @@
 # 作者博客
 http://www.likeyun.cn/
 # 交流群
-http://pic.iask.cn/fimg/824575168973.jpg
+http://pic.iask.cn/fimg/383045229743.jpg
 
 # 更新日志
 版本：v3.0.0<br/>
@@ -44,7 +44,7 @@ http://www.xxx.com/huoma/admin
 ```
 
 # 活码交流群
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200721143656.jpg?raw=true" width="400"/>
+<img src="http://pic.iask.cn/fimg/383045229743.jpg" width="400"/>
 
 # 赞赏
 <img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
