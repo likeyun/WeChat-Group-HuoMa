@@ -18,7 +18,7 @@
   <br/>
   <h3>里客云群活码生成系统安装</h3>
   <p>请在php5.6以上版本安装，建议使用php7.0</p>
-	<p>遇到问题请加入交流群：<a href="http://pic.iask.cn/fimg/383045229743.jpg">http://pic.iask.cn/fimg/383045229743.jpg</a></p>
+	<p>遇到问题请加入交流群：<a href="http://pic.iask.cn/fimg/383045229743.jpg">http://pic.iask.cn/fimg/383045229743.jpg</a>或添加微信进群，微信号：face6009，备注“活码”</p>
   
   <form action="db_creat.php" method="post">
     <div class="input-group mb-3">
