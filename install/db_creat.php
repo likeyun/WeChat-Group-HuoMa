@@ -37,7 +37,8 @@ byqun_maxnum VARCHAR(32) NOT NULL,
 
 $sql2 = "CREATE TABLE `user` (
   `username` mediumtext NOT NULL,
-  `passwd` mediumtext NOT NULL
+  `passwd` mediumtext NOT NULL,
+  `max` int(3) NOT NULL
 )";
  
 if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {

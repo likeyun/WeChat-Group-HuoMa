@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+  session_start();
+  include '../MySql.php';
+  $conn = mysqli_connect($db_url, $db_user, $db_pwd, $db_name);
+  $username = $_SESSION['username'];
+  $arr = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `user` WHERE `username`='$username'"));
+  $max = $arr['max'];
+?>
 <html>
 <head>
   <title>活码管理系统 - 创建群活码</title>
@@ -26,7 +34,7 @@
   </style>
 </head>
 <body style="background:#fff;">
-  <div class="alert alert-info" role="alert">当前登录用户: <?php session_start();echo $_SESSION['username'] ?></div>
+  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $username ?> | 限制活码个数: <?php echo $max ?>个</div>
 <div class="container">
   <h2>活码管理系统 - 创建群活码</h2>
   <br>

@@ -4,7 +4,7 @@
 ?>
 <html>
 <head>
-  <title>微信活码管理系统 - 首页</title>
+  <title>微信活码管理系统 - 查看用户活码</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
         <a class="nav-link active" data-toggle="pill" href="#home">查看用户的活码</a>
       </li>
       <li>
-        <a href="index.php" class="nav-link">返回首页</a>
+        <a href="control_user.php" class="nav-link">返回用户列表</a>
       </li>
     </ul>
 
@@ -94,17 +94,6 @@
 				echo "<script>location.href='login.php';</script>";
 			}
 		?>
-
-	  	<!-- 分页 -->
-	  	<!-- <br/>
-	  	<ul class="pagination">
-		    <li class="page-item"><a class="page-link" href="#">上一页</a></li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item"><a class="page-link" href="#">下一页</a></li>
-		  </ul> -->
-
     </div>
   </div>
 </div>
