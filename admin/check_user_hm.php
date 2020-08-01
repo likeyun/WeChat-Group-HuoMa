@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+	$username = $_GET['user'];
+?>
 <html>
 <head>
   <title>微信活码管理系统 - 首页</title>
@@ -12,33 +15,19 @@
   <link rel="icon" href="https://bit-images.bj.bcebos.com/bit-new/file/20200629/3vum.jpg" type="image/x-icon" />
 </head>
 <body style="background:#fff;">
+   <div class="alert alert-info" role="alert">用户: <?php echo $username ?></div>
 <div class="container">
-  <h2>活码管理系统</h2>
+  <h2>活码管理系统 - 查看用户活码</h2>
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="pill" href="#home">群活码</a>
-    </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">微信活码</a>
-    </li> -->
-   <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu2">系统设置</a>
-    </li>  -->
-    <li>
-      <a href="add_qun.php" class="nav-link">添加群活码</a>
-    </li>
-    <li>
-      <a href="control_user.php" class="nav-link">用户管理</a>
-    </li>
-    <!-- <li>
-      <a href="add_wx.php" class="nav-link">添加微信活码</a>
-    </li> -->
-    <li>
-      <a href="exitlogin.php" class="nav-link">退出登录</a>
-    </li>
-  </ul>
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#home">查看用户的活码</a>
+      </li>
+      <li>
+        <a href="index.php" class="nav-link">返回首页</a>
+      </li>
+    </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
@@ -59,8 +48,8 @@
 				if ($conn->connect_error) {
 				    die("连接失败: " . $conn->connect_error);
 				} 
-				 
-				$sql = "SELECT * FROM qun_huoma WHERE user=''";
+				
+				$sql = "SELECT * FROM qun_huoma WHERE user='$username'";
 				$result = $conn->query($sql);
 				 
 				if ($result->num_rows > 0) {

@@ -31,10 +31,16 @@ biaoqian VARCHAR(32) NOT NULL,
 wxstatus VARCHAR(32) NOT NULL,
 byqun_qrcode TEXT(1000) NOT NULL,
 byqun_status VARCHAR(32) NOT NULL,
-byqun_maxnum VARCHAR(32) NOT NULL
+byqun_maxnum VARCHAR(32) NOT NULL,
+`user` mediumtext NOT NULL
+)";
+
+$sql2 = "CREATE TABLE `user` (
+  `username` mediumtext NOT NULL,
+  `passwd` mediumtext NOT NULL
 )";
  
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
 	$mysql_data = '
 	<?php
 		$admin_user = "'.$adminuser.'";

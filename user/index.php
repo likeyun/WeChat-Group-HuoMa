@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+if(!isset($_SESSION['username']))
+{
+  header("Refresh:0;url=\"login.php\"");
+  exit();
+}
+?>
 <html>
 <head>
   <title>微信活码管理系统 - 首页</title>
@@ -12,6 +20,7 @@
   <link rel="icon" href="https://bit-images.bj.bcebos.com/bit-new/file/20200629/3vum.jpg" type="image/x-icon" />
 </head>
 <body style="background:#fff;">
+  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $_SESSION['username'] ?></div>
 <div class="container">
   <h2>活码管理系统</h2>
   <br>
@@ -29,9 +38,6 @@
     <li>
       <a href="add_qun.php" class="nav-link">添加群活码</a>
     </li>
-    <li>
-      <a href="control_user.php" class="nav-link">用户管理</a>
-    </li>
     <!-- <li>
       <a href="add_wx.php" class="nav-link">添加微信活码</a>
     </li> -->
@@ -46,9 +52,9 @@
 	    <?php
       header("Content-type:text/html;charset=utf-8");
 	    session_start();
-			if(isset($_SESSION["huoma.admin"])){
+			if(isset($_SESSION["username"])){
 				// 已登录
-				
+				$username = $_SESSION['username'];
         // 数据库配置
         include '../MySql.php';
 
@@ -60,7 +66,7 @@
 				    die("连接失败: " . $conn->connect_error);
 				} 
 				 
-				$sql = "SELECT * FROM qun_huoma WHERE user=''";
+				$sql = "SELECT * FROM qun_huoma WHERE user='$username'";
 				$result = $conn->query($sql);
 				 
 				if ($result->num_rows > 0) {
@@ -95,7 +101,7 @@
 					    echo "</div>";
 				  	echo "</div>";
 				    }
-            echo "<p style=\"color:#666;font-size:14px;\">Power By <a href=\"https://www.likeyun.cn\" style=\"text-decoration:none;color:#666;\">www.likeyun.cn</a></p>";
+            echo "<p style=\"color:#666;font-size:14px;\">Power By <a href=\"https://www.likeyun.cn\" style=\"text-decoration:none;color:#666;\">www.likeyun.cn</a> && Update By <a href=\"https://xsot.cn\" style=\"text-decoration:none;color:#666;\">xsot.cn</a></p>";
 				} else {
 				    echo "暂无数据，请添加群活码";
 				}
