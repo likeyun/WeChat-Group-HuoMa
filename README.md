@@ -5,8 +5,16 @@
 
 # 作者博客
 http://www.likeyun.cn/
-# 交流群
-http://pic.iask.cn/fimg/383045229743.jpg
+
+# 遇到问题请加入交流群
+http://pic.iask.cn/fimg/805445297649.jpg
+
+# 功能总览
+`1、创建微信群活码、可添加群主微信二维码、可统计二维码访问量`
+`2、微信群二维码达到峰值可以自动切换备用二维码`
+`3、创建微信群活码可以选择落地页域名`
+`4、创建渠道二维码，可以创建文本类型和链接类型`
+`5、渠道二维码，可以随时变更文本内容或链接`
 
 # 更新日志
 版本：v4.0.0<br/>
@@ -33,6 +41,15 @@ http://pic.iask.cn/fimg/383045229743.jpg
 ![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113531.png)
 ![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113652.png)
 
+# 设置落地页域名
+![添加群活码](https://github.com/likeyun/TANKING/blob/master/yuming_set.png?raw=true)
+
+# 创建渠道码
+什么是渠道码？就是一个二维码，相比于其他二维码，渠道码可以统计访问次数，可以创建不同的渠道码，用于投放在不同的场所，可以统计不同渠道的效果，也可以在不变更二维码的前提下修改文本或跳转的链接，可以理解为文本活码和网址活码。
+
+![添加渠道码](https://github.com/likeyun/TANKING/blob/master/guanli_qudaoma.png?raw=true)
+![添加渠道码](https://github.com/likeyun/TANKING/blob/master/creat_qudaoma.png)
+
 # 活码界面
 <img src="https://github.com/likeyun/TANKING/blob/master/qunhuoma-page.jpg" width="400"/>
 
@@ -42,9 +59,6 @@ http://pic.iask.cn/fimg/383045229743.jpg
 那么后台访问地址是
 http://www.xxx.com/huoma/admin
 ```
-
-# 活码交流群
-<img src="http://pic.iask.cn/fimg/383045229743.jpg" width="400"/>
 
 # 赞赏
 <img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
