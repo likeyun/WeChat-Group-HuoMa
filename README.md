@@ -1,3 +1,8 @@
+# 二开版本
+版本：v3.0.1<br/>
+`1、新增用户管理,支持个人用户注册`<br/>
+`2、支持管理员管理用户,查看用户活码,删除用户`<br/>
+
 # WeChat-Group-HuoMa
 微信群二维码活码工具，生成微信群活码，随时可以切换二维码！微信官方群二维码有效期是7天，过期后无法扫码进群，或者是群人数满200人就无法扫码进群，如果我们在推广的时候，群满人或者过期了，别人还想进群，我们将会失去很多推广效果，所以有了群活码，可以在不更换链接和二维码的前提下，切换扫码后显示的内容，灵活变换！
 
@@ -5,8 +10,9 @@
 
 # 作者博客
 http://www.likeyun.cn/
-# 交流群
-http://pic.iask.cn/fimg/383045229743.jpg
+
+# 二开作者博客
+http://blog.xsot.cn
 
 # 更新日志
 版本：v3.0.0<br/>
@@ -18,8 +24,7 @@ http://pic.iask.cn/fimg/383045229743.jpg
 
 # 安装步骤
 `1、把所有代码上传到服务器`<br/>
-`2、访问install文件夹安装`<br/>
-`例如、http://www.abc.com/huoma/install`<br/>
+`2、访问http://example.com/install安装`<br/>
 
 只需要输入数据库和管理员相关信息，即可快速安装，如果安装失败，请检查数据库配置是否填写正确。
 
@@ -36,26 +41,3 @@ http://pic.iask.cn/fimg/383045229743.jpg
 # 活码界面
 <img src="https://github.com/likeyun/TANKING/blob/master/qunhuoma-page.jpg" width="400"/>
 
-# 访问
-```
-例如你的代码放在服务器根目录下的huoma文件夹
-那么后台访问地址是
-http://www.xxx.com/huoma/admin
-```
-
-# 活码交流群
-<img src="http://pic.iask.cn/fimg/383045229743.jpg" width="400"/>
-
-# 赞赏
-<img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
-
-# 温馨提示
-以上图片如果不显示，可以尝试给你电脑的host文件添加以下ip，添加后保存，再刷新页面。
-
-1、找到目录C:\Windows\System32\drivers\etc\hosts
-2、编辑host，在最下方粘贴下面ip地址
-```
-199.232.68.133 raw.githubusercontent.com
-199.232.68.133 githubusercontent.com
-```
-3、保存
