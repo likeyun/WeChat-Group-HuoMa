@@ -20,7 +20,7 @@
 	<?php
 	$hmid = $_GET["hmid"];
 	if (empty($hmid)) {
-		echo "<h2 style='text-align:center;margin-top:50px;'>请在管理后台添加活码后，点击分享，微信扫码即可查看你的活码</h2>";
+		header("Refresh:0;url=\"./user/\"");
 	}else{
 		echo '';
 
