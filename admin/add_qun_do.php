@@ -20,6 +20,7 @@ if(isset($_SESSION["huoma.admin"])){
 	$byqun_qrcode = $_POST["byqun_qrcode"];
 	$byqun_status = $_POST["byqun_status"];
 	$byqun_maxnum = $_POST["byqun_maxnum"];
+	$yuming = $_POST["yuming"];
 
 	if(empty($title)){
 		$result = array(
@@ -46,11 +47,17 @@ if(isset($_SESSION["huoma.admin"])){
 			"result" => "107",
 			"msg" => "标签不得为空"
 		);
+	}else if(empty($yuming)){
+		$result = array(
+			"result" => "108",
+			"msg" => "请选择落地页域名"
+		);
 	}else{
 		// 当前时间
 		$date = date("Y-m-d G:H:s");
+		mysqli_query($conn, "SET NAMES UTF-8"); //utf8 设为对应的编码
 		// 插入数据库
-		$sql = "INSERT INTO qun_huoma (title, qun_qrcode, wx_qrcode, wxid, hm_id, biaoqian, update_time, wxstatus, byqun_status, byqun_qrcode, byqun_maxnum, page_view) VALUES ('$title', '$qun_qrcode', '$wx_qrcode', '$wxid', '$hm_id', '$biaoqian', '$date', '$wxstatus', '$byqun_status', '$byqun_qrcode', '$byqun_maxnum', '0')";
+		$sql = "INSERT INTO qun_huoma (title, qun_qrcode, wx_qrcode, wxid, hm_id, biaoqian, update_time, wxstatus, byqun_status, byqun_qrcode, byqun_maxnum, page_view, yuming) VALUES ('$title', '$qun_qrcode', '$wx_qrcode', '$wxid', '$hm_id', '$biaoqian', '$date', '$wxstatus', '$byqun_status', '$byqun_qrcode', '$byqun_maxnum', '0', '$yuming')";
 		
 		if ($conn->query($sql) === TRUE) {
 		    $result = array(

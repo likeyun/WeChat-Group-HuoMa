@@ -20,18 +20,15 @@
     <li class="nav-item">
       <a class="nav-link active" data-toggle="pill" href="#home">群活码</a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">微信活码</a>
-    </li> -->
-    <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu2">系统设置</a>
-    </li> -->
     <li>
-      <a href="add_qun.php" class="nav-link">添加群活码</a>
+      <a href="add_qun.php" class="nav-link">创建群活码</a>
     </li>
-    <!-- <li>
-      <a href="add_wx.php" class="nav-link">添加微信活码</a>
-    </li> -->
+    <li>
+      <a href="qudao.php" class="nav-link">创建渠道码</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu1">域名设置</a>
+    </li>
     <li>
       <a href="exitlogin.php" class="nav-link">退出登录</a>
     </li>
@@ -103,16 +100,56 @@
 			}
 		?>
 
-	  	<!-- 分页 -->
-	  	<!-- <br/>
-	  	<ul class="pagination">
-		    <li class="page-item"><a class="page-link" href="#">上一页</a></li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item"><a class="page-link" href="#">下一页</a></li>
-		  </ul> -->
+    </div>
+    
+    <!-- 域名设置 -->
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>设置落地页域名</h3>
+      <p>落地页即展示二维码的页面，在设置之前，你需要做好域名解析，然后在下方进行绑定域名，然后在创建群活码的时候，选择你要使用的域名即可。(要求：以http或https开头，结束不能有“/”符号，正确填写例如https://www.likeyun.cn)</p>
+      <?php
+      // 数据库配置
+      include '../MySql.php';
 
+      // 创建连接
+      $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
+
+      // 检查连接
+      if ($conn->connect_error) {
+          die("连接失败: " . $conn->connect_error);
+      } 
+       
+      $ym_sql = "SELECT * FROM qun_huoma_yuming";
+      $ym_result = $conn->query($ym_sql);
+       
+      if ($ym_result->num_rows > 0) {
+        // 输出数据
+        while($ym_row = $ym_result->fetch_assoc()) {
+          $yuming = $ym_row["yuming"];
+          $ymid = $ym_row["id"];
+          echo '<div class="card" style="margin-bottom:15px;">
+          <div class="card-body">
+          <h4 class="card-title">'.$yuming.'</h4>
+          <a href="#" class="card-link" id="'.$ymid.'" onclick="delym(this);" style="outline:none;color:#333;">删除</a>
+          </div>
+          </div>';
+        }
+      }else{
+        echo "暂无域名";
+        echo "<br/><br/>";
+      }
+      ?>
+
+      <form role="form" action="##" onsubmit="return false" method="post" id="set_domain_name">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">域名</span>
+          </div>
+          <input type="text" class="form-control" name="yuming" placeholder="请输入域名">
+        </div>
+        <button type="button" class="btn btn-dark" onclick="set_domain_name()">添加域名</button>
+      </form>
+      <!-- Result -->
+      <div class="Result" style="margin-top: 30px;display: none;"></div>
     </div>
   </div>
 </div>
@@ -170,7 +207,7 @@
       var shareid = event.id;
       $.ajax({
           type: "GET",
-          url: "share.php?hmid="+shareid,
+          url: "share_qunhuoma.php?hmid="+shareid,
           success: function (data) {
           	if (data.result == "101") {
           		alert(data.msg);
@@ -216,6 +253,71 @@
 	        alert("error");
 	      }
 	  });
+  }
+
+
+  function closesctips(){
+    $(".container .Result").css('display','none');
+  }
+
+  // 添加域名
+  function set_domain_name(){
+    $.ajax({
+        type: "POST",
+        url: "set_domain_name_do.php",
+        data: $('#set_domain_name').serialize(),
+        success: function (data) {
+          if (data.result == "101") {
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+            $(".container .Result").css('display','block');
+            setTimeout('closesctips()', 2000);
+          }else if (data.result == "102") {
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+            $(".container .Result").css('display','block');
+            setTimeout('closesctips()', 2000);
+          }else if (data.result == "103") {
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+            $(".container .Result").css('display','block');
+            setTimeout('closesctips()', 2000);
+          }else if (data.result == "104") {
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+            $(".container .Result").css('display','block');
+            setTimeout('closesctips()', 2000);
+          }else if (data.result == "100") {
+            $(".container .Result").html("<div class=\"alert alert-success\"><strong>"+data.msg+"</strong></div>");
+            $(".container .Result").css('display','block');
+            setTimeout('closesctips()', 2000);
+            // location.href("index.php#menu1");
+            location.reload();
+          }
+        },
+        error : function() {
+          alert("服务器错误，请检查php版本");
+        }
+    });
+  }
+
+  // 删除
+  function delym(event){
+    var delymid = event.id;
+    $.ajax({
+        type: "GET",
+        url: "del_ym.php?ymid="+delymid,
+        success: function (data) {
+          if (data.result == "101") {
+            alert(data.msg);
+          }else if (data.result == "102") {
+            alert(data.msg);
+          }else if (data.result == "100") {
+            location.reload();
+          }else{
+            alert("未知错误");
+          }
+        },
+        error : function() {
+          alert("服务器错误");
+        }
+    });
   }
 </script>
 </body>

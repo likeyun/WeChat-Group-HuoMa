@@ -77,7 +77,8 @@
             $wxstatus  = $row["wxstatus"];
             $byqun_qrcode  = $row["byqun_qrcode"];
             $byqun_status  = $row["byqun_status"];
-				    $byqun_maxnum  = $row["byqun_maxnum"];
+            $byqun_maxnum  = $row["byqun_maxnum"];
+				    $yuming  = $row["yuming"];
 
 					  echo '<form role="form" action="##" onsubmit="return false" method="post" id="update">
                 <div class="input-group mb-3">
@@ -85,9 +86,26 @@
                     <span class="input-group-text">群活码标题</span>
                   </div>
                   <input type="text" class="form-control" name="title" value="'.$title.'" placeholder="请输入群活码标题">
-                </div>
+                </div>';
 
-                <div class="upload_qun input-group mb-3">
+                 echo '<select class="form-control" id="byqun_status" style="margin-bottom:15px;" name="yuming">';
+                 echo '<option value="'.$yuming.'">当前域名：'.$yuming.'</option>';
+                 echo '<option value="http://'.$_SERVER['HTTP_HOST'].'">http://'.$_SERVER['HTTP_HOST'].'</option>';
+                  // 获取落地域名列表
+                  $sql_ldym = "SELECT * FROM qun_huoma_yuming";
+                  $result_ldym = $conn->query($sql_ldym);
+                  if ($result_ldym->num_rows > 0) {
+                      // 输出数据
+                      while($row_ldym = $result_ldym->fetch_assoc()) {
+                        $ldym = $row_ldym["yuming"];
+                         echo '<option value="'.$ldym.'">'.$ldym.'</option>';
+                      }
+                  } else {
+                     // echo '<option value="http://'.$_SERVER['HTTP_HOST'].'/">http://'.$_SERVER['HTTP_HOST'].'</option>';
+                  }
+                echo "</select>";
+
+                echo '<div class="upload_qun input-group mb-3">
                   <input type="text" class="form-control" name="qun_qrcode" value="'.$qun_qrcode.'" placeholder="请上传微信群二维码">
                   <div class="input-group-append" style="cursor:pointer;">
                     <span class="input-group-text" data-toggle="modal" data-target="#select_qun_model">上传图片</span>
