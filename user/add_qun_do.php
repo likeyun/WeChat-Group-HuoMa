@@ -8,7 +8,7 @@ if(isset($_SESSION["username"])){
 
   //遍历info表，看有多少个
 	$conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
-	$num = mysqli_fetch_array(mysqli_query($conn,"SELECT user,count(user) as num from qun_huoma GROUP BY user having count('$username');"))['num']; //当前活码个数
+	$num = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) AS num FROM qun_huoma WHERE user='$username'"))['num']; //当前活码个数
   $max = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `user` WHERE username='$username'"))['max']; //最大活码个数
   if((int)$num+1 > (int)$max)
   {
