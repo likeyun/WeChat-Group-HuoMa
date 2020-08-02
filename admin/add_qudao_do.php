@@ -47,7 +47,7 @@ if(isset($_SESSION["huoma.admin"])){
 		// 当前时间
 		$date = date("Y-m-d");
 		// 插入数据库
-		$sql = "INSERT INTO qun_huoma_qudao (qudao_title,qudao_type,qudao_biaoqian,qudao_content,qudao_yuming,qudao_id,qudao_pageview,qudao_update_time) VALUES ('$qudao_title', '$qudao_type', '$qudao_biaoqian', '$qudao_content', '$qudao_yuming', '$qudao_id', '0', '$date')";
+		$sql = "INSERT INTO qun_huoma_qudao (qudao_title,qudao_type,qudao_biaoqian,qudao_content,qudao_yuming,qudao_id,qudao_pageview,qudao_update_time,user) VALUES ('$qudao_title', '$qudao_type', '$qudao_biaoqian', '$qudao_content', '$qudao_yuming', '$qudao_id', '0', '$date','')";
 		
 		if ($conn->query($sql) === TRUE) {
 		    $result = array(
