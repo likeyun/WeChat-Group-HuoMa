@@ -12,6 +12,7 @@ if(!isset($_SESSION['username']))
   $username = $_SESSION['username'];
   $arr = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `user` WHERE `username`='$username'"));
   $max = $arr['max'];
+  $max2 = $arr['max2'];
 }
 ?>
 <html>
@@ -27,7 +28,7 @@ if(!isset($_SESSION['username']))
   <link rel="icon" href="https://bit-images.bj.bcebos.com/bit-new/file/20200629/3vum.jpg" type="image/x-icon" />
 </head>
 <body style="background:#fff;">
-  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $username ?> | 限制活码个数: <?php echo $max ?>个</div>
+  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $username ?><br/>限制活码: <?php echo $max ?>个 | 渠道码: <?php echo $max ?>个</div>
 <div class="container">
   <h2>活码管理系统</h2>
   <br>
@@ -39,11 +40,11 @@ if(!isset($_SESSION['username']))
     <!-- <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu1">微信活码</a>
     </li> -->
-   <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu2">系统设置</a>
-    </li>  -->
     <li>
       <a href="add_qun.php" class="nav-link">添加群活码</a>
+    </li>
+        <li>
+      <a href="qudao.php" class="nav-link">创建渠道码</a>
     </li>
     <!-- <li>
       <a href="add_wx.php" class="nav-link">添加微信活码</a>

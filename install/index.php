@@ -18,14 +18,14 @@
   <br/>
   <h3>里客云群活码生成系统安装</h3>
   <p>请在php5.6以上版本安装，建议使用php7.0</p>
-	<p>遇到问题请加入交流群：<a href="http://pic.iask.cn/fimg/383045229743.jpg">http://pic.iask.cn/fimg/383045229743.jpg</a>或添加微信进群，微信号：face6009，备注“活码”</p>
+  <p>安装遇到问题：<a href="http://pic.iask.cn/fimg/805445297649.jpg" target="blank">请点击这里进入交流群，群内解决问题！</a></p>
   
   <form action="db_creat.php" method="post">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">数据库地址</span>
+        <span class="input-group-text">数据库服务器地址</span>
       </div>
-      <input type="text" class="form-control" placeholder="请输入数据库服务器地址" name="dbservername">
+      <input type="text" class="form-control" placeholder="请粘贴数据库服务器地址" name="dbservername">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">

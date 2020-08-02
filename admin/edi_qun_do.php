@@ -20,6 +20,7 @@ if(isset($_SESSION["huoma.admin"])){
 	$byqun_qrcode = $_POST["byqun_qrcode"];
 	$byqun_status = $_POST["byqun_status"];
 	$byqun_maxnum = $_POST["byqun_maxnum"];
+	$yuming = $_POST["yuming"];
 
 	if(empty($title)){
 		$result = array(
@@ -44,8 +45,9 @@ if(isset($_SESSION["huoma.admin"])){
 	}else{
 		// 当前时间
 		$date = date('Y-m-d');
+		mysqli_query($conn, "SET NAMES UTF-8"); //utf8 设为对应的编码
 		// 更新数据库
-		mysqli_query($conn,"UPDATE qun_huoma SET title='$title',qun_qrcode='$qun_qrcode',wx_qrcode='$wx_qrcode',wxid='$wxid',biaoqian='$biaoqian',update_time='$date',wxstatus='$wxstatus',byqun_status='$byqun_status',byqun_qrcode='$byqun_qrcode',byqun_maxnum='$byqun_maxnum' WHERE hm_id=".$hm_id);
+		mysqli_query($conn,"UPDATE qun_huoma SET title='$title',qun_qrcode='$qun_qrcode',wx_qrcode='$wx_qrcode',wxid='$wxid',biaoqian='$biaoqian',update_time='$date',wxstatus='$wxstatus',byqun_status='$byqun_status',byqun_qrcode='$byqun_qrcode',byqun_maxnum='$byqun_maxnum',yuming='$yuming' WHERE hm_id=".$hm_id);
 		$result = array(
 			"result" => "100",
 			"msg" => "更新成功"

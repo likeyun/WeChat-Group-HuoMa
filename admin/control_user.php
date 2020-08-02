@@ -56,11 +56,13 @@
               $username = $row["username"];
               $passwd = $row["passwd"];
               $max = $row["max"];
+              $max2 = $row["max2"];
               echo '<div class="card" style="margin-bottom:15px;">
 					    <div class="card-body">
 					      <h4 class="card-title">'.$username.'</h4>
-					      <a href="check_user_hm.php?user='.$username.'" class="card-link" style="color:#333;">查看用户创建的活码</a>
-					      <a href="#" class="card-link" data-toggle="modal" data-target="#edit_user" style="outline:none;color:#333;float: right;margin-right:10px;" onclick="edit_user(\''.$username.'\',\''.$passwd.'\',\''.$max.'\')">编辑用户</a>';
+					      <a href="check_user_hm.php?user='.$username.'" class="card-link" style="color:#333;">查看用户创建的活码</a><br/>
+					      <a href="check_user_qd.php?user='.$username.'" class="card-link" style="color:#333;">查看用户创建的渠道码</a>
+					      <a href="#" class="card-link" data-toggle="modal" data-target="#edit_user" style="outline:none;color:#333;float: right;margin-right:10px;" onclick="edit_user(\''.$username.'\',\''.$passwd.'\',\''.$max.'\',\''.$max2.'\')">编辑用户</a>';
               echo "</div>";
               echo "</div>";
             }
@@ -105,6 +107,11 @@
         </div>
         <input type="number" class="form-control" id="max" placeholder="5">
     </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend"> <span class="input-group-text">渠道码个数</span>
+        </div>
+        <input type="number" class="form-control" id="max2" placeholder="5">
+    </div>
     <button type="button" class="btn btn-secondary" style="background-color:#00E3E3" onclick="edit()">修改信息</button>
     <button type="button" class="btn btn-secondary" style="background-color:#FF2D2D" onclick="del()">删除用户</button>
 </div>
@@ -119,11 +126,12 @@
 </div>
 
   <script>
-    function edit_user(username,passwd,max)
+    function edit_user(username,passwd,max,max2)
     {
       $('#username').val('' + username + '');
       $('#passwd').val('' + passwd + '');
       $('#max').val('' + max + '');
+      $('#max2').val('' + max2 + '');
     }
     
     function edit()
@@ -135,7 +143,8 @@
           method: 'changePasswd',
           username: $('#username').val(),
           passwd: $('#passwd').val(),
-          max: $('#max').val()
+          max: $('#max').val(),
+          max2: $('#max2').val()
         },
         success: function(data)
         {

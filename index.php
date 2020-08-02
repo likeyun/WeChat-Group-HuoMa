@@ -13,16 +13,14 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="format-detection" content="telephone=no">
-	  <script src="https://player.love119.icu/js/yzmplayer.js"></script>
 </head>
 <body>
 
 	<?php
 	$hmid = $_GET["hmid"];
-	if (empty($hmid)) {
-		header("Refresh:0;url=\"./user/\"");
+	if (trim(empty($hmid))) {
+		header("Location:user");
 	}else{
-		echo '';
 
 		// 数据库配置
 		include './MySql.php';
@@ -57,6 +55,13 @@
 
 			    echo "<title>".$title."</title>";
 
+				echo '<div id="safety-tips">
+				<div class="safety-icon">
+				<img src="images/safety-icon.png" />
+				</div>
+				<div class="safety-title">此二维码已通过安全认证，可以放心扫码</div>
+				</div>';
+
 			    if ($byqun_status == 0) {
 			    	// 未开启备用群
 					echo '<div id="ewmcon">
@@ -77,27 +82,26 @@
 						</div>';
 			    	}
 			    }
-
-		
 				
 				if ($wxstatus == 0) {
 					//隐藏
+					echo '<div id="tips-text" style="text-align:center;font-size:17px;"><b>请长按上方二维码加入群聊</b></div>';
 				}else if ($wxstatus == 1) {
+					echo '<div id="tips-text"><b>本页面为二维码更新页面，请再次扫描上方二维码即可加群！</b>若群二维码提示"该群已开启群验证，只可通过邀请进群"或"群聊人数超过200人，只可通过邀请进群"，可以联系下方微信，我们会邀请你入群。</div>';
+
 					echo '<div id="grwx">
 						 <img src="'.$wx_qrcode.'" />
 						 </div>
-						  <div id="footer">
-        <p><font color="#696969">© 2020 | <a href="https://xsot.cn"> 星辰科技  </a> | <a href="#"> 快抖科技  </a></font></p>
-    </div>	
 
-				 <div id="copy"><div class="img" id="img"><img src="https://kyun.ltyuanfang.cn/tc/2020/07/31/bfc5c00123573.png" style="width:auto;height:auto;max-width:100%;max-height:100%;"></div>
+						 <div id="copy">
 							<div class="wxid" id="wxid">'.$wxid.'</div>
-							<div class="copybtn" id="cpwxid">关注</div>
+							<div class="copybtn" id="cpwxid">复制微信号</div>
 						 </div>';
 				}
 		    }
 		} else {
-		    echo "不存在该页面";
+		    echo "<div style='width:150px;margin:50px auto 10px;'><img src='images/notfound.png' width='150'/></div>";
+		    echo "<p style='text-align:center;'><b>该二维码不存在或已被管理员删除</b></p>";
 		}
 		$conn->close();
 	}
@@ -115,13 +119,11 @@
       if(selection.rangeCount > 0) selection.removeAllRanges();
       selection.addRange(range);
       document.execCommand('copy');
-     //  $("#copytips .success").css("display","block");
+      // $("#copytips .success").css("display","block");
       // $("#tkl .copy").text("已复制");
-     //  setTimeout('hide()', 2000);
-     // alert("已复制微信号,点确定立即跳转到微信！");
-     y = document.getElementById("cpwxid")
-    y.innerHTML = "复制成功"
-        window.location.href='weixin://';
+      // setTimeout('hide()', 2000);
+      alert("已复制");
+      
     }
     window.onload = function () {
       var obt = document.getElementById("copy");

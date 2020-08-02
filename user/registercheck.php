@@ -33,7 +33,7 @@ if ($username == 'admin') {
       );
     } else {
       $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
-      $sql = "INSERT INTO `user` VALUES('$username','$passwd','5')";
+      $sql = "INSERT INTO `user` VALUES('$username','$passwd','5','5')";
       if ($conn->query($sql) === TRUE) {
         $result = array(
           "result" => "200",

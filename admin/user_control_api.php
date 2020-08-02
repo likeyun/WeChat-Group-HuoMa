@@ -12,10 +12,11 @@ if (!isset($_SESSION["huoma.admin"])) {
   $username = $_POST['username'];
   $passwd = $_POST['passwd'];
   $max = $_POST['max'];
+  $max2 = $_POST['max2'];
   switch ($method) {
     case 'changePasswd':
       $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
-      mysqli_query($conn,"UPDATE `user` SET `passwd`='$passwd',`max`='$max' WHERE username='$username'");
+      mysqli_query($conn,"UPDATE `user` SET `passwd`='$passwd',`max`='$max',`max2`='$max2' WHERE username='$username'");
       $result = array(
         "code" => "200",
         "msg" => "修改成功"

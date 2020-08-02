@@ -6,6 +6,7 @@
   $username = $_SESSION['username'];
   $arr = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `user` WHERE `username`='$username'"));
   $max = $arr['max'];
+  $max2 = $arr['max2'];
 ?>
 <html>
 <head>
@@ -34,7 +35,7 @@
   </style>
 </head>
 <body style="background:#fff;">
-  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $username ?> | 限制活码个数: <?php echo $max ?>个</div>
+  <div class="alert alert-info" role="alert">当前登录用户: <?php echo $username ?><br/>限制活码: <?php echo $max ?>个 | 渠道码: <?php echo $max ?>个</div>
 <div class="container">
   <h2>活码管理系统 - 创建群活码</h2>
   <br>
@@ -53,6 +54,15 @@
     <div id="home" class="tab-pane active"><br>
       <?php
         header("Content-type:text/html;charset=utf-8");
+        $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
+
+        // 检查连接
+        if ($conn->connect_error) {
+            die("连接失败: " . $conn->connect_error);
+        } 
+         
+        $sql = "SELECT * FROM qun_huoma_yuming";
+        $result = $conn->query($sql);
         if(isset($_SESSION["username"])){
           echo '<form role="form" action="##" onsubmit="return false" method="post" id="addqun" enctype="multipart/form-data">
                 <div class="input-group mb-3">
@@ -60,9 +70,23 @@
                     <span class="input-group-text">群活码标题</span>
                   </div>
                   <input type="text" class="form-control" name="title" placeholder="请输入群活码标题">
-                </div>
+                </div>';
 
-                <div class="upload_qun input-group mb-3">
+                echo '<select class="form-control" style="margin-bottom:15px;" name="yuming">';
+                echo '<option value="">请选择落地页域名</option>';
+                  if ($result->num_rows > 0) {
+                      // 输出数据
+                      while($row = $result->fetch_assoc()) {
+                        $ym = $row["yuming"];
+                         echo '<option value="'.$ym.'">'.$ym.'</option>';
+                      }
+                      echo '<option value="http://'.$_SERVER['HTTP_HOST'].'">http://'.$_SERVER['HTTP_HOST'].'</option>';
+                  } else {
+                     echo '<option value="http://'.$_SERVER['HTTP_HOST'].'">http://'.$_SERVER['HTTP_HOST'].'</option>';
+                  }
+                echo "</select>";
+
+                echo '<div class="upload_qun input-group mb-3">
                   <input type="text" class="form-control" name="qun_qrcode" placeholder="请上传微信群二维码">
                   <div class="input-group-append" style="cursor:pointer;">
                     <span class="input-group-text" data-toggle="modal" data-target="#select_qun_model">上传图片</span>
@@ -258,6 +282,9 @@ function closesctips(){
           }else if (data.result == "107") {
             $(".container .Result").css('display','block');
             $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "108") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
           }else if (data.result == "100") {
             $(".container .Result").css('display','block');
             $(".container .Result").html("<div class=\"alert alert-success\"><strong>"+data.msg+"</strong></div>");
@@ -301,7 +328,7 @@ function closesctips(){
           }
         },
         error:function(data){
-          console.log(data)
+          alert("上传失败");
         },
         beforeSend:function(data){
           $(".modal .modal-dialog .modal-content .qunbody").html("<h3>正在上传中...</h3>");

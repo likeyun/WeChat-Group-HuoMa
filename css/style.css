@@ -1,6 +1,6 @@
 
-/*// 
-// 
+/*// 里客云科技开发
+// www.likeyun.cn
 // 作者：TANKING
 // 请保留版权信息
 // 仅用于学习用途
@@ -44,8 +44,8 @@ body{
 }
 
 #ewmcon{
-	width: 100%;
-	margin:100px auto 0;
+	width: 85%;
+	margin:30px auto 0;
 }
 
 
@@ -64,14 +64,15 @@ body{
 
 
 #grwx{
-	width: 100%;
-
+	width: 180px;
+	height: 180px;
 	margin:20px auto 10px;
 }
 
 
 #grwx img{
-	width: 100%;
+	width: 180px;
+	height: 180px;
 }
 
 
@@ -101,18 +102,13 @@ body{
 	height: 70px;
 	background: #fff;
 	position: fixed;
-	top: 0;
+	bottom: 0;
 	border-top: 1px solid #eee;
 	-webkit-tap-highlight-color:rgba(255,0,0,0);
 }
 
-#copy .img{
-	float: left;
-	height: 70px;
-}
-
 #copy .wxid{
-	
+	width: 60%;
 	height: 70px;
 	text-indent: 15px;
 	line-height: 70px;
@@ -124,7 +120,7 @@ body{
 }
 
 #copy .copybtn{
-	width: 20%;
+	width: 26%;
 	float: right;
 	background: #07c160;
 	color: #fff;
@@ -156,24 +152,4 @@ body{
 
 .container .nav-pills .add-qun-huoma{
 	float: right;
-}
-
-#footer {
-    width: 100%;
-    color: white;
-    float: left;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 30px;
-    /* background-color: blue; */
-}
-
-#footer a {
-    text-decoration: none;
-    color: black;
-}
-
-#footer a:hover {
-    color: rgb(128,128,128);
 }
