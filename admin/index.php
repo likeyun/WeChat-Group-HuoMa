@@ -214,7 +214,7 @@
           	}else if (data.result == "102") {
           		alert(data.msg);
           	}else if (data.result == "100") {
-          		$("#share-huoma .modal-dialog .modal-body").html("链接："+data.url+"<br/><img src='http://qr.topscan.com/api.php?text="+data.url+"' width='200'/>");
+          		$("#share-huoma .modal-dialog .modal-body").html("链接："+data.url+"<br/><img src='https://api.pwmqr.com/qrcode/create/?url="+data.url+"' width='200'/>");
           	}else{
           		alert("未知错误");
           	}
