@@ -13,6 +13,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../images/xiaotubiao.png" type="image/x-icon" />
 	<style type="text/css">
 		#content{
 			width: 80%;
