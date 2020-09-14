@@ -64,8 +64,10 @@ http://pic.iask.cn/fimg/805445297649.jpg
 # 访问
 ```
 例如你的代码放在服务器根目录下的huoma文件夹
-那么后台访问地址是
+那么管理后台访问地址是
 http://www.xxx.com/huoma/admin
+那么用户后台访问地址是
+http://www.xxx.com/huoma/user
 ```
 
 # 赞赏
