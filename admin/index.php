@@ -8,23 +8,29 @@
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel="icon" href="https://bit-images.bj.bcebos.com/bit-new/file/20200629/3vum.jpg" type="image/x-icon" />
+  <link rel="icon" href="../images/xiaotubiao.png" type="image/x-icon" />
 </head>
 <body style="background:#fff;">
 <div class="container">
   <h2>活码管理系统</h2>
+  <p>系统版本：v5.0.0</p>
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="pill" href="#home">群活码</a>
+      <a class="nav-link active" data-toggle="pill" href="#home">群活码管理</a>
     </li>
     <li>
-      <a href="add_qun.php" class="nav-link">创建群活码</a>
+      <a href="qudao.php" class="nav-link">渠道码管理</a>
     </li>
     <li>
-      <a href="qudao.php" class="nav-link">创建渠道码</a>
+      <a href="user.php" class="nav-link">用户管理</a>
+    </li>
+    <li>
+      <a href="yqm.php" class="nav-link">邀请码</a>
     </li>
      <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu1">域名设置</a>
@@ -42,56 +48,113 @@
 	    session_start();
 			if(isset($_SESSION["huoma.admin"])){
 				// 已登录
-				
+				$user = $_SESSION["huoma.admin"];
+
         // 数据库配置
         include '../MySql.php';
 
         // 创建连接
         $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
 				
-				// 检查连接
-				if ($conn->connect_error) {
-				    die("连接失败: " . $conn->connect_error);
-				} 
-				 
-				$sql = "SELECT * FROM qun_huoma";
-				$result = $conn->query($sql);
-				 
-				if ($result->num_rows > 0) {
-				    // 输出数据
-				    while($row = $result->fetch_assoc()) {
+		// 检查连接
+		if ($conn->connect_error) {
+		    die("连接失败: " . $conn->connect_error);
+		} 
 
-				    $id  = $row["id"];
-				    $hm_id  = $row["hm_id"];
-				    $title  = $row["title"];
-				    $update_time  = $row["update_time"];
-				    $qun_qrcode  = $row["qun_qrcode"];
-				    $wx_qrcode  = $row["wx_qrcode"];
-				    $wxid  = $row["wxid"];
-				    $page_view  = $row["page_view"];
-            $biaoqian  = $row["biaoqian"];
-				    $wxstatus  = $row["wxstatus"];
+		//计算总活码数量
+        $sql_huoma = "SELECT * FROM qun_huoma";
+        $result_huoma = $conn->query($sql_huoma);
+        $allhuoma_num = $result_huoma->num_rows;
 
-					echo '<div class="card" style="margin-bottom:15px;">
-					    <div class="card-body">
-					      <h4 class="card-title">'.$title.'</h4>
-					      <a href="edi_qun.php?hmid='.$hm_id.'" class="card-link" style="color:#333;">编辑</a>
-					      <a href="#" class="card-link" data-toggle="modal" data-target="#del-huoma" id="'.$hm_id.'" onclick="getdelid(this);" style="outline:none;color:#333;">删除</a>
-					      <a href="#" class="card-link" data-toggle="modal" data-target="#share-huoma" id="'.$hm_id.'" onclick="share(this);" style="outline:none;color:#333;">分享</a>
-					      <span class="badge badge-secondary" style="float: right;">访问量：'.$page_view.'</span>
-					      <span class="badge badge-secondary" style="float: right;margin-right:10px;">'.$update_time.'</span>
-                <span class="badge badge-warning" style="float: right;margin-right:10px;">'.$biaoqian.'</span>';
-                if ($wxstatus == 0) {
-                  echo "<span class=\"badge badge-danger\" style=\"float: right;margin-right:10px;\">隐藏微信</span>";
-                }else if ($wxstatus == 1) {
-                  echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\">显示微信</span>";
-                }
-					    echo "</div>";
-				  	echo "</div>";
-				    }
-            echo "<p style=\"color:#666;font-size:14px;\">Power By <a href=\"https://www.likeyun.cn\" style=\"text-decoration:none;color:#666;\">www.likeyun.cn</a></p>";
+        //每页显示的活码数量
+        $lenght = 5;
+
+        //当前页码
+        @$page = $_GET['page']?$_GET['page']:1;
+
+        //每页第一行
+        $offset = ($page-1)*$lenght;
+
+        //总数页
+        $allpage = ceil($allhuoma_num/$lenght);
+
+        //上一页     
+        $prepage = $page-1;
+        if($page==1){
+          $prepage=1;
+        }
+
+        //下一页
+        $nextpage = $page+1;
+        if($page==$allpage){
+          $nextpage=$allpage;
+        }
+		 
+		$sql = "SELECT * FROM qun_huoma ORDER BY ID DESC limit {$offset},{$lenght}";
+		$result = $conn->query($sql);
+		 
+		if ($result->num_rows > 0) {
+		    // 输出数据
+		    while($row = $result->fetch_assoc()) {
+
+		    $id  = $row["id"];
+		    $hm_id  = $row["hm_id"];
+		    $title  = $row["title"];
+		    $update_time  = $row["update_time"];
+		    $qun_qrcode  = $row["qun_qrcode"];
+		    $wx_qrcode  = $row["wx_qrcode"];
+		    $wxid  = $row["wxid"];
+		    $page_view  = $row["page_view"];
+    		$biaoqian  = $row["biaoqian"];
+    		$wxstatus  = $row["wxstatus"];
+    		$huoma_status  = $row["huoma_status"];
+		    $byqun_status  = $row["byqun_status"];
+		    $add_user  = $row["add_user"];
+
+			echo '<div class="card" style="margin-bottom:15px;">
+			    <div class="card-body">
+			      <h4 class="card-title">'.$title.'</h4>
+			      <a href="edi_qun.php?hmid='.$hm_id.'" class="card-link" style="color:#333;">编辑</a>
+        		<a href="#" class="card-link" data-toggle="modal" data-target="#del-huoma" id="'.$hm_id.'" onclick="getdelid(this);" style="outline:none;color:#333;">删除</a>
+			      <a href="#" class="card-link" data-toggle="modal" data-target="#share-huoma" id="'.$hm_id.'" onclick="share(this);" style="outline:none;color:#333;">分享</a>
+			      <span class="badge badge-secondary" style="float: right;"><span class="oi oi-eye"></span> '.$page_view.'</span>
+			      <span class="badge badge-secondary" style="float: right;margin-right:10px;">'.$update_time.'</span>
+        		<span class="badge badge-warning" style="float: right;margin-right:10px;">'.$biaoqian.'</span>';
+	        if ($wxstatus == 0) {
+	          echo "<span class=\"badge badge-danger\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-x\"></span> 微信</span>";
+	        }else if ($wxstatus == 1) {
+	          echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-check\"></span> 微信</span>";
+	        }
+	        if ($byqun_status == 0) {
+	          echo "<span class=\"badge badge-danger\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-x\"></span> 备用群</span>";
+	        }else if ($byqun_status == 1) {
+	          echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-check\"></span> 备用群</span>";
+	        }
+	        if ($huoma_status == 0) {
+	          echo "<span class=\"badge badge-danger\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-x\"></span> 暂停使用</span>";
+	        }else if ($huoma_status == 1) {
+	          echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-check\"></span> 正常使用</span>";
+	        }
+	        echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-person\"></span>账号:".$add_user."</span>";
+		    echo "</div>";
+  			echo "</div>";
+		    }
+		    echo "<ul class=\"pagination\">";
+                    if ($page == 1) {
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"javascript:;\" style=\"color:#333;font-size:14px;\">当前是第".$page."页</a></li>";
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"index.php?page=".$nextpage."\" style=\"color:#333;font-size:14px;\">下一页</a></li>";
+                    }else if ($page == $allpage) {
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"index.php?page=".$prepage."\" style=\"color:#333;font-size:14px;\">上一页</a></li>";
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"javascript:;\" style=\"color:#333;font-size:14px;\">当前是第".$page."页，已经是最后一页</a></li>";
+                    }else{
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"index.php?page=".$prepage."\" style=\"color:#333;font-size:14px;\">上一页</a></li>";
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"javascript:;\" style=\"color:#333;font-size:14px;\">当前是第".$page."页</a></li>";
+                      echo "<li class=\"page-item\"><a class=\"page-link\" href=\"index.php?page=".$nextpage."\" style=\"color:#333;font-size:14px;\">下一页</a></li>";
+                    }
+                  echo "</ul>";
+            echo "<p style=\"color:#666;font-size:14px;\">开源：<a href=\"http://www.likeyun.cn\" style=\"text-decoration:none;color:#666;\">www.likeyun.cn</a><a href=\"https://github.com/likeyun/WeChat-Group-HuoMa\" style=\"text-decoration:none;color:#666;float:right;\">Github</a></p>";
 				} else {
-				    echo "暂无数据，请添加群活码";
+				    echo "暂无用户创建群活码";
 				}
 				$conn->close();
 			}else{
@@ -105,7 +168,7 @@
     <!-- 域名设置 -->
     <div id="menu1" class="container tab-pane fade"><br>
       <h3>设置落地页域名</h3>
-      <p>落地页即展示二维码的页面，在设置之前，你需要做好域名解析，然后在下方进行绑定域名，然后在创建群活码的时候，选择你要使用的域名即可。(要求：以http或https开头，结束不能有“/”符号，正确填写例如https://www.likeyun.cn)</p>
+      <p>落地页即展示二维码的页面，在设置之前，你需要做好域名解析，然后在下方进行绑定域名，然后在创建群活码的时候，选择你要使用的域名即可。要求以http或https开头，结束不能有“/”符号，正确填写例如 <span class="badge badge-secondary">https://www.baidu.com</span></p>
       <?php
       // 数据库配置
       include '../MySql.php';
@@ -214,7 +277,7 @@
           	}else if (data.result == "102") {
           		alert(data.msg);
           	}else if (data.result == "100") {
-          		$("#share-huoma .modal-dialog .modal-body").html("链接："+data.url+"<br/><img src='https://api.pwmqr.com/qrcode/create/?url="+data.url+"' width='200'/>");
+          		$("#share-huoma .modal-dialog .modal-body").html("链接："+data.url+"<br/><img src='../qrcode.php?content="+data.url+"' width='200'/>");
           	}else{
           		alert("未知错误");
           	}

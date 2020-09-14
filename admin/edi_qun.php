@@ -42,45 +42,46 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="tab-pane active"><br>
-	    <?php
+      <?php
       header("Content-type:text/html;charset=utf-8");
-	    session_start();
-			if(isset($_SESSION["huoma.admin"])){
+      session_start();
+      if(isset($_SESSION["huoma.admin"])){
 
         // 数据库配置
         include '../MySql.php';
 
         // 创建连接
         $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
-				
-				// 检查连接
-				if ($conn->connect_error) {
-				    die("连接失败: " . $conn->connect_error);
-				} 
-				 
-				$sql = "SELECT * FROM qun_huoma WHERE hm_id =".$_GET["hmid"];
-				$result = $conn->query($sql);
-				 
-				if ($result->num_rows > 0) {
-				    // 输出数据
-				    while($row = $result->fetch_assoc()) {
+        
+        // 检查连接
+        if ($conn->connect_error) {
+            die("连接失败: " . $conn->connect_error);
+        } 
+         
+        $sql = "SELECT * FROM qun_huoma WHERE hm_id =".$_GET["hmid"];
+        $result = $conn->query($sql);
+         
+        if ($result->num_rows > 0) {
+            // 输出数据
+            while($row = $result->fetch_assoc()) {
 
-				    $id  = $row["id"];
-				    $hm_id  = $row["hm_id"];
-				    $title  = $row["title"];
-				    $update_time  = $row["update_time"];
-				    $qun_qrcode  = $row["qun_qrcode"];
-				    $wx_qrcode  = $row["wx_qrcode"];
-				    $wxid  = $row["wxid"];
+            $id  = $row["id"];
+            $hm_id  = $row["hm_id"];
+            $title  = $row["title"];
+            $update_time  = $row["update_time"];
+            $qun_qrcode  = $row["qun_qrcode"];
+            $wx_qrcode  = $row["wx_qrcode"];
+            $wxid  = $row["wxid"];
             $page_view  = $row["page_view"];
             $biaoqian  = $row["biaoqian"];
             $wxstatus  = $row["wxstatus"];
-            $byqun_qrcode  = $row["byqun_qrcode"];
             $byqun_status  = $row["byqun_status"];
-            $byqun_maxnum  = $row["byqun_maxnum"];
-				    $yuming  = $row["yuming"];
+            $huoma_status  = $row["huoma_status"];
+            $byqun_qrcode  = $row["byqun_qrcode"];
+            $byqun_maxnum  = $row["qun_maxnum"];
+            $yuming  = $row["yuming"];
 
-					  echo '<form role="form" action="##" onsubmit="return false" method="post" id="update">
+            echo '<form role="form" action="##" onsubmit="return false" method="post" id="update">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">群活码标题</span>
@@ -108,14 +109,14 @@
                 echo '<div class="upload_qun input-group mb-3">
                   <input type="text" class="form-control" name="qun_qrcode" value="'.$qun_qrcode.'" placeholder="请上传微信群二维码">
                   <div class="input-group-append" style="cursor:pointer;">
-                    <span class="input-group-text" data-toggle="modal" data-target="#select_qun_model">上传图片</span>
+                    <span class="input-group-text" data-toggle="modal" data-target="#select_qun_model">上传微信群二维码</span>
                   </div>
                 </div>
 
                 <div class="upload_wx input-group mb-3">
                   <input type="text" class="form-control" name="wx_qrcode" value="'.$wx_qrcode.'" placeholder="请上传微信二维码">
                   <div class="input-group-append" style="cursor:pointer;">
-                    <span class="input-group-text" data-toggle="modal" data-target="#select_wx_model">上传图片</span>
+                    <span class="input-group-text" data-toggle="modal" data-target="#select_wx_model">上传微信二维码</span>
                   </div>
                 </div>
 
@@ -126,15 +127,15 @@
                   <input type="text" class="form-control" name="wxid" value="'.$wxid.'" placeholder="请输入微信号">
                 </div>';
 
-                echo "<label for=\"byewm_status\">是否开启备用二维码</label>";
+                echo "<label for=\"byewm_status\">是否开启备用群</label>";
                 if ($byqun_status == 1) {
                     echo '<select class="form-control" id="byewm_status" style="margin-bottom:15px;" name="byqun_status">
                           <option value="1">开启</option>
-                          <option value="0">不开启</option>
+                          <option value="0">关闭</option>
                         </select>';
                   }else if ($byqun_status == 0) {
                     echo '<select class="form-control" id="byewm_status" style="margin-bottom:15px;" name="byqun_status">
-                          <option value="0">不开启</option>
+                          <option value="0">关闭</option>
                           <option value="1">开启</option>
                         </select>';
                   }
@@ -142,16 +143,16 @@
                 // 备用二维码
                 echo '<div id="byewm_upload">
                         <div class="upload_byqun input-group mb-3">
-                          <input type="text" class="form-control" name="byqun_qrcode" value="'.$byqun_qrcode.'" placeholder="请上传微信群备用二维码">
+                          <input type="text" class="form-control" name="byqun_qrcode" value="'.$byqun_qrcode.'" placeholder="请上传备用群二维码">
                           <div class="input-group-append" style="cursor:pointer;">
-                            <span class="input-group-text" data-toggle="modal" data-target="#select_byqun_model">上传图片</span>
+                            <span class="input-group-text" data-toggle="modal" data-target="#select_byqun_model">上传备用群二维码</span>
                           </div>
                         </div>
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <span class="input-group-text">峰值</span>
+                            <span class="input-group-text">阈值</span>
                           </div>
-                          <input type="text" class="form-control" name="byqun_maxnum" value="'.$byqun_maxnum.'" placeholder="当访问量达到多少，自动切换备用二维码">
+                          <input type="text" class="form-control" name="byqun_maxnum" value="'.$byqun_maxnum.'" placeholder="当访问量达到多少，自动切换备用群">
                         </div>
                       </div>';
 
@@ -165,6 +166,16 @@
                    echo "<option value=\"0\">隐藏</option>";
                 }
                 echo "</select>";
+                echo '<label for="sel1">活码状态</label>';
+                echo "<select class=\"form-control\" id=\"sel1\" style=\"margin-bottom:15px;\" name=\"huoma_status\">";
+                if ($huoma_status == 0) {
+                  echo "<option value=\"0\">暂停使用</option>";
+                  echo "<option value=\"1\">正常使用</option>";
+                }else if ($huoma_status == 1) {
+                   echo "<option value=\"1\">正常使用</option>";
+                   echo "<option value=\"0\">暂停使用</option>";
+                }
+                echo "</select>";
                 echo '<div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">标签</span>
@@ -174,17 +185,17 @@
                 <input type="hidden" name="hm_id" value="'.$hm_id.'">
                 <button type="button" class="btn btn-dark" onclick="update()">更新群活码</button>
               </form>';
-				    }
-				} else {
-				    echo "0 结果";
-				}
-				$conn->close();
-			}else{
-				// 未登录
-				echo "<script>location.href='login.php';</script>";
-			}
-			
-		?>
+            }
+        } else {
+            echo "0 结果";
+        }
+        $conn->close();
+      }else{
+        // 未登录
+        echo "<script>location.href='login.php';</script>";
+      }
+      
+    ?>
 
     </div>
   </div>
@@ -286,7 +297,7 @@
 
 <script>
 function closesctips(){
-	$(".container .Result").css('display','none');
+  $(".container .Result").css('display','none');
 }
 </script>
 <!-- 编辑提交 -->
@@ -297,38 +308,38 @@ function update(){
         url: "edi_qun_do.php",
         data: $('#update').serialize(),
         success: function (data) {
-        	// 更新成功
-        	if (data.result == "101") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
-        	}else if (data.result == "102") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
-        	}else if (data.result == "103") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
-        	}else if (data.result == "104") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
-        	}else if (data.result == "105") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
-        	}else if (data.result == "100") {
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-success\"><strong>"+data.msg+"</strong></div>");
-        		location.href='index.php';
-        	}else{
-        		$(".container .Result").css('display','block');
-        		$(".container .Result").html("<div class=\"alert alert-danger\"><strong>更新失败，发生错误</strong></div>");
-        	}
-        	// 关闭提示
-        	setTimeout('closesctips()', 2000);
+          // 更新成功
+          if (data.result == "101") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "102") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "103") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "104") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "105") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>"+data.msg+"</strong></div>");
+          }else if (data.result == "100") {
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-success\"><strong>"+data.msg+"</strong></div>");
+            location.href='index.php';
+          }else{
+            $(".container .Result").css('display','block');
+            $(".container .Result").html("<div class=\"alert alert-danger\"><strong>更新失败，发生错误</strong></div>");
+          }
+          // 关闭提示
+          setTimeout('closesctips()', 2000);
         },
         error : function() {
-        	// 更新失败
-        	$(".container .Result").css('display','block');
-        	$(".container .Result").html("<div class=\"alert alert-danger\"><strong>更新失败，服务器发生错误</strong></div>");
-        	setTimeout('closesctips()', 2000);
+          // 更新失败
+          $(".container .Result").css('display','block');
+          $(".container .Result").html("<div class=\"alert alert-danger\"><strong>更新失败，服务器发生错误</strong></div>");
+          setTimeout('closesctips()', 2000);
         }
     });
   }

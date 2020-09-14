@@ -17,9 +17,10 @@ if(isset($_SESSION["huoma.admin"])){
 	$hm_id = $_POST["hm_id"];
 	$biaoqian = $_POST["biaoqian"];
 	$wxstatus = $_POST["wxstatus"];
-	$byqun_qrcode = $_POST["byqun_qrcode"];
+	$huoma_status = $_POST["huoma_status"];
 	$byqun_status = $_POST["byqun_status"];
 	$byqun_maxnum = $_POST["byqun_maxnum"];
+	$byqun_qrcode = $_POST["byqun_qrcode"];
 	$yuming = $_POST["yuming"];
 
 	if(empty($title)){
@@ -47,21 +48,17 @@ if(isset($_SESSION["huoma.admin"])){
 		$date = date('Y-m-d');
 		mysqli_query($conn, "SET NAMES UTF-8"); //utf8 设为对应的编码
 		// 更新数据库
-		mysqli_query($conn,"UPDATE qun_huoma SET title='$title',qun_qrcode='$qun_qrcode',wx_qrcode='$wx_qrcode',wxid='$wxid',biaoqian='$biaoqian',update_time='$date',wxstatus='$wxstatus',byqun_status='$byqun_status',byqun_qrcode='$byqun_qrcode',byqun_maxnum='$byqun_maxnum',yuming='$yuming' WHERE hm_id=".$hm_id);
+		mysqli_query($conn,"UPDATE qun_huoma SET title='$title',qun_qrcode='$qun_qrcode',wx_qrcode='$wx_qrcode',wxid='$wxid',biaoqian='$biaoqian',update_time='$date',wxstatus='$wxstatus',byqun_status='$byqun_status',yuming='$yuming',huoma_status='$huoma_status',qun_maxnum='$byqun_maxnum',byqun_qrcode='$byqun_qrcode' WHERE hm_id=".$hm_id);
 		$result = array(
 			"result" => "100",
 			"msg" => "更新成功"
 		);
 	}
-	// 返回结果
-	echo json_encode($result,JSON_UNESCAPED_UNICODE);
 }else{
 	$result = array(
 		"result" => "105",
 		"msg" => "未登录"
 	);
-	// 未登录
-	echo json_encode($result,JSON_UNESCAPED_UNICODE);
 }
-
+echo json_encode($result,JSON_UNESCAPED_UNICODE);
 ?>
