@@ -133,7 +133,7 @@
               }
             echo "</ul>";
         } else {
-            echo "暂无用户创建渠道码";
+            echo "暂无用户创建渠道码，你也可以前往<a href='../user/qudao.php'>用户后台</a>创建";
         }
         $conn->close();
       }else{
