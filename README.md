@@ -9,6 +9,11 @@ http://www.likeyun.cn/
 # 遇到问题请加入交流群
 http://pic.iask.cn/fimg/805445297649.jpg
 
+# 功能体验
+http://www.likeyun.cn/huoma/admin/
+账号：test
+密码：test
+
 # 功能总览
 `1、创建微信群活码、可添加群主微信二维码、可统计二维码访问量`<br/>
 `2、微信群二维码达到峰值可以自动切换备用二维码`<br/>
