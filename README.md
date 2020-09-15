@@ -10,9 +10,9 @@ http://www.likeyun.cn/
 http://pic.iask.cn/fimg/805445297649.jpg
 
 # 功能体验
-http://www.likeyun.cn/huoma/admin/
-账号：test
-密码：test
+http://www.likeyun.cn/huoma/user/
+账号：test666
+密码：123456789
 
 # 功能总览
 `1、创建微信群活码、可添加群主微信二维码、可统计二维码访问量`<br/>
