@@ -16,7 +16,7 @@
 <body style="background:#fff;">
 <div class="container">
   <h2>活码管理系统</h2>
-  <p>系统版本：v5.0.0</p>
+  <p>系统版本：v5.0.1</p>
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">

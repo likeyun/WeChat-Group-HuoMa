@@ -58,19 +58,7 @@
         // 检查连接
         if ($conn->connect_error) {
             die("连接失败: " . $conn->connect_error);
-        } 
-         
-        $sql = "SELECT * FROM qun_huoma_yuming";
-        $result = $conn->query($sql);
-        
-        // 随机生成邀请码
-		function getrandstr($length){
-		    $str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-		    $randStr = str_shuffle($str);//打乱字符串
-		    $rands= substr($randStr,0,$length);//substr(string,start,length);返回字符串的一部分
-		    return $rands;
-		}
-		// echo getrandstr(6);
+        }
 
         session_start();
         if(isset($_SESSION["huoma.admin"])){
