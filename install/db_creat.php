@@ -79,8 +79,8 @@ user_email VARCHAR(32) NOT NULL
 $sql_qun_huoma_yqm = "CREATE TABLE qun_huoma_yqm (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 yqm VARCHAR(32) NOT NULL,
-yqm_status VARCHAR(32) NOT NULL,
-use_time VARCHAR(32) NOT NULL,
+yqm_status VARCHAR(32) NULL,
+use_time VARCHAR(32) NULL,
 yqm_daynum VARCHAR(32) NOT NULL
 )";
 
