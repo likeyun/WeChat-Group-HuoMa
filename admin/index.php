@@ -154,7 +154,7 @@
                   echo "</ul>";
             echo "<p style=\"color:#666;font-size:14px;\">开源：<a href=\"http://www.likeyun.cn\" style=\"text-decoration:none;color:#666;\">www.likeyun.cn</a><a href=\"https://github.com/likeyun/WeChat-Group-HuoMa\" style=\"text-decoration:none;color:#666;float:right;\">Github</a></p>";
 				} else {
-				    echo "暂无用户创建群活码";
+				    echo "暂无用户创建群活码，你也可以前往<a href='user.php'>用户后台</a>创建";
 				}
 				$conn->close();
 			}else{
