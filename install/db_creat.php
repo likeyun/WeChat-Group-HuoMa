@@ -79,8 +79,8 @@ user_email VARCHAR(32) NOT NULL
 $sql_qun_huoma_yqm = "CREATE TABLE qun_huoma_yqm (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 yqm VARCHAR(32) NOT NULL,
-yqm_status VARCHAR(32) NULL,
-use_time VARCHAR(32) NULL,
+yqm_status VARCHAR(32) NOT NULL,
+use_time VARCHAR(32) NOT NULL,
 yqm_daynum VARCHAR(32) NOT NULL
 )";
 
@@ -109,19 +109,24 @@ if ($conn->query($sql_qun_huoma) === TRUE) {
 				if ($conn->query($sql_qun_huoma_yqm) === TRUE) {
 					//qun_huoma_yqm数据表创建成功
 					
-					//开始创建本地配置文件
-					$mysql_data = '<?php
-					$db_url = "'.$servername.'";
-					$db_user = "'.$username.'";
-					$db_pwd = "'.$password.'";
-					$db_name = "'.$dbname.'";
-					?>';
-					//生成json文件
-					file_put_contents('../MySql.php', $mysql_data);
-					//输出结果
-					echo "<div style='width:300px;margin:50px auto 5px;'><img src='http://p1.pstatp.com/large/2b2940002fb725ed482f6' width='300'/></div>";
-					echo "<h2 style='text-align:center;margin-top:50px;'>安装成功！！</h2>";
-					echo "<h2 style='text-align:center;margin-top:5px;'><a href='../admin/' style='text-decoration:underline;color:#333;'>前往管理端>> </a>&nbsp;&nbsp;&nbsp;<a href='../user/' style='text-decoration:underline;color:#333;'>前往客户端>> </a> </h2>";
+						$db_file = "../MySql.php";
+						if(file_exists($db_file)){
+							echo "请勿重新安装！";
+						}else{
+						    //开始创建本地配置文件
+							$mysql_data = '<?php
+							$db_url = "'.$servername.'";
+							$db_user = "'.$username.'";
+							$db_pwd = "'.$password.'";
+							$db_name = "'.$dbname.'";
+							?>';
+							//生成json文件
+							file_put_contents('../MySql.php', $mysql_data);
+							//输出结果
+							echo "<div style='width:300px;margin:50px auto 5px;'><img src='http://p1.pstatp.com/large/2b2940002fb725ed482f6' width='300'/></div>";
+							echo "<h2 style='text-align:center;margin-top:50px;'>安装成功！！</h2>";
+							echo "<h2 style='text-align:center;margin-top:5px;'><a href='../admin/' style='text-decoration:underline;color:#333;'>前往管理端>> </a>&nbsp;&nbsp;&nbsp;<a href='../user/' style='text-decoration:underline;color:#333;'>前往客户端>> </a> </h2>";
+						}
 					} else {
 						//qun_huoma_qudao数据表创建失败
 				    	echo $conn->error."<br/>";
