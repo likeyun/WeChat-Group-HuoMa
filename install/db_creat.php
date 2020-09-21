@@ -111,7 +111,7 @@ if ($conn->query($sql_qun_huoma) === TRUE) {
 					
 						$db_file = "../MySql.php";
 						if(file_exists($db_file)){
-							echo "请勿重新安装！";
+							echo "请勿重复安装！";
 						}else{
 						    //开始创建本地配置文件
 							$mysql_data = '<?php
