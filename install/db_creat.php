@@ -84,36 +84,44 @@ use_time VARCHAR(32) NOT NULL,
 yqm_daynum VARCHAR(32) NOT NULL
 )";
 
+// 创建qun_huoma_wx数据表
+$sql_qun_huoma_wx = "CREATE TABLE qun_huoma_wx (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+wx_title VARCHAR(32) NOT NULL,
+add_user VARCHAR(32) NOT NULL,
+wx_id VARCHAR(32) NOT NULL,
+wx_qrcode TEXT(1000) NOT NULL,
+wx_yuming TEXT(1000) NOT NULL,
+wx_nummber VARCHAR(32) NOT NULL,
+wx_status VARCHAR(32) NOT NULL,
+wx_biaoqian VARCHAR(32) NOT NULL,
+wx_pageview VARCHAR(32) NOT NULL,
+wx_creat_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+wx_update_time VARCHAR(32) NOT NULL
+)";
 
+
+// 判断是否创建成功
 if ($conn->query($sql_qun_huoma) === TRUE) {
-	//qun_huoma数据表创建成功
-
 	if ($conn->query($sql_qun_huoma_yuming) === TRUE) {
-		//qun_huoma_yuming数据表创建成功
-
 		if ($conn->query($sql_qun_huoma_qudao) === TRUE) {
-			//qun_huoma_qudao数据表创建成功
-			
 			if ($conn->query($sql_qun_huoma_user) === TRUE) {
-				//qun_huoma_user数据表创建成功
-				
+				// 注册管理员
 				$user_id = rand(1000000,9999999);// 生成uid
-				//注册管理员
 				$sql_creat_admin = "INSERT INTO qun_huoma_user (user_id, user_name, user_password, user_guoqidate, user_email, user_quanxian, user_status) VALUES ('$user_id', '$adminuser', '$adminpwd', '2025-12-31', 'admin@qq.com', '777', '0')";
 				if ($conn->query($sql_creat_admin) === TRUE) {
 					// echo "管理员注册成功";
 				}else{
 					// echo "管理员注册失败";
 				}
-				
 				if ($conn->query($sql_qun_huoma_yqm) === TRUE) {
-					//qun_huoma_yqm数据表创建成功
-					
+					if ($conn->query($sql_qun_huoma_wx) === TRUE) {
+						// 所有都创建成功
 						$db_file = "../MySql.php";
 						if(file_exists($db_file)){
 							echo "请勿重复安装！";
 						}else{
-						    //开始创建本地配置文件
+							//开始创建本地配置文件
 							$mysql_data = '<?php
 							$db_url = "'.$servername.'";
 							$db_user = "'.$username.'";
@@ -127,18 +135,22 @@ if ($conn->query($sql_qun_huoma) === TRUE) {
 							echo "<h2 style='text-align:center;margin-top:50px;'>安装成功！！</h2>";
 							echo "<h2 style='text-align:center;margin-top:5px;'><a href='../admin/' style='text-decoration:underline;color:#333;'>前往管理端>> </a>&nbsp;&nbsp;&nbsp;<a href='../user/' style='text-decoration:underline;color:#333;'>前往客户端>> </a> </h2>";
 						}
-					} else {
-						//qun_huoma_qudao数据表创建失败
-				    	echo $conn->error."<br/>";
+					}else{
+						echo $conn->error."<br/>";
 					}
+				}else{
+					echo $conn->error."<br/>";
 				}
+			}else{
+				echo $conn->error."<br/>";
 			}
-		} else {
-		//qun_huoma_yuming数据表创建失败
-	    echo $conn->error."<br/>";
+		}else{
+			echo $conn->error."<br/>";
+		}
+	}else{
+		echo $conn->error."<br/>";
 	}
 } else {
-	//qun_huoma数据表创建失败
     echo $conn->error."<br/>";
 }
 
