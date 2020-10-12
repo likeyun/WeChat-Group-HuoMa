@@ -16,12 +16,15 @@
 <body style="background:#fff;">
 <div class="container">
   <h2>活码管理系统</h2>
-  <p>系统版本：v5.0.1</p>
+  <p>系统版本：v5.1.0</p>
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="pill" href="#home">群活码管理</a>
+    </li>
+    <li>
+      <a href="weixin.php" class="nav-link">微信活码管理</a>
     </li>
     <li>
       <a href="qudao.php" class="nav-link">渠道码管理</a>
@@ -119,7 +122,8 @@
 			      <a href="#" class="card-link" data-toggle="modal" data-target="#share-huoma" id="'.$hm_id.'" onclick="share(this);" style="outline:none;color:#333;">分享</a>
 			      <span class="badge badge-secondary" style="float: right;"><span class="oi oi-eye"></span> '.$page_view.'</span>
 			      <span class="badge badge-secondary" style="float: right;margin-right:10px;">'.$update_time.'</span>
-        		<span class="badge badge-warning" style="float: right;margin-right:10px;">'.$biaoqian.'</span>';
+        		<span class="badge badge-warning" style="float: right;margin-right:10px;">'.$biaoqian.'</span>
+            <span class="badge badge-warning" style="float: right;margin-right:10px;">创建者：'.$add_user.'</span>';
 	        if ($wxstatus == 0) {
 	          echo "<span class=\"badge badge-danger\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-x\"></span> 微信</span>";
 	        }else if ($wxstatus == 1) {
@@ -135,7 +139,6 @@
 	        }else if ($huoma_status == 1) {
 	          echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-check\"></span> 正常使用</span>";
 	        }
-	        echo "<span class=\"badge badge-success\" style=\"float: right;margin-right:10px;\"><span class=\"oi oi-circle-person\"></span>账号:".$add_user."</span>";
 		    echo "</div>";
   			echo "</div>";
 		    }
