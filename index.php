@@ -14,6 +14,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="../images/xiaotubiao.png" type="image/x-icon" />
+	<script src="js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 
@@ -124,11 +125,19 @@
 	}// 验证是否有参数结束
 	?>
 
+	<!-- 复制提示 -->
+	<div id="copytips">复制成功</div>
+
 	<!-- 底部占位 -->
 	<div id="zhanwei"></div>
 
 	<!-- 复制 -->
     <script>
+
+    function closesctips(){
+	  $("#copytips").css('display','none');
+	}
+
     function copyArticle(event){
       const range = document.createRange();
       range.selectNode(document.getElementById('wxid'));
@@ -136,13 +145,26 @@
       if(selection.rangeCount > 0) selection.removeAllRanges();
       selection.addRange(range);
       document.execCommand('copy');
-      alert("已复制");
-      
+      $("#copytips").css('display','block');
+      setTimeout('closesctips()', 2000);
     }
     window.onload = function () {
       var obt = document.getElementById("copy");
       obt.addEventListener('click', copyArticle, false);
     }
+
+    // 检查是否有缓存
+    // var huomaStorage = window.localStorage.huoma;
+
+    // if (huomaStorage == null) {
+    // 	// 如果没有缓存，那就把当前的二维码缓存到本地
+    // 	huomaStorage = '<?php echo $qun_qrcode; ?>';
+    // }else{
+    // 	// 如果有缓存，那就直接把当前的缓存取出来显示
+    // 	var huoma = window.localStorage.huoma;
+    // 	$("#ewmcon").html("<img src='"+huoma+"'/>");
+    // }
+	
     </script>
 </body>
 </html>
