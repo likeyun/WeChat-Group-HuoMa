@@ -28,6 +28,7 @@
 <body style="background:#fff;">
 <div class="container">
   <h2>活码管理系统 - 创建群活码</h2>
+  <p>微信群二维码有效期7天，过期后将无法扫码进群，微信群活码可以在不更换二维码的情况下，可以保持微信群二维码的更新！</p>
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
