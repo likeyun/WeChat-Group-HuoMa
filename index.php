@@ -126,7 +126,7 @@
 	?>
 
 	<!-- 复制提示 -->
-	<div id="copytips">复制成功</div>
+	<div id="copytips" style="display:none;">复制成功</div>
 
 	<!-- 底部占位 -->
 	<div id="zhanwei"></div>
