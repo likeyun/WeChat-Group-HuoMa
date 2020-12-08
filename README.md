@@ -19,6 +19,9 @@ https://likeyun.lanzoux.com/b015yhs3e
 `1、新增活动码`<br/>
 `2、修复上一版本的Bug`<br/>
 
+# 各版本之间的数据备份和回复
+https://mp.weixin.qq.com/s/mmWC65I2xYi4CHqmHTIrDg
+
 # 修复日志
 2020-11-18 修复添加邀请码失败的问题
 
