@@ -68,6 +68,11 @@ https://likeyun.lanzoux.com/b015yhs3e
 ![添加渠道码](https://github.com/likeyun/TANKING/blob/master/guanli_qudaoma.png?raw=true)
 ![添加渠道码](https://github.com/likeyun/TANKING/blob/master/creat_qudaoma.png)
 
+# 活动码
+活动码可以创建一个活动介绍页面，引导用户参与活动，当活动结束后，还可以将活动码设置为活动结束并留下联系方式，进一步引流。
+
+<img src="https://img06.mifile.cn/v1/MI_542ED8B1722DC/2acbdb2f292560aa6c0c110966b7eba8.png" />
+
 # 活码界面
 <img src="https://github.com/likeyun/TANKING/blob/master/qunhuoma-page.jpg" width="400"/>
 
