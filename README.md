@@ -1,6 +1,8 @@
 # WeChat-Group-HuoMa
 微信群二维码活码工具，生成微信群活码，随时可以切换二维码！微信官方群二维码有效期是7天，过期后无法扫码进群，或者是群人数满200人就无法扫码进群，如果我们在推广的时候，群满人或者过期了，别人还想进群，我们将会失去很多推广效果，所以有了群活码，可以在不更换链接和二维码的前提下，切换扫码后显示的内容，灵活变换！
 
+
+<img src="http://inews.gtimg.com/newsapp_ls/0/12908496634/0" />
 <img src="https://raw.githubusercontent.com/likeyun/TANKING/master/timg.jpg" width="700" />
 
 # 作者博客
