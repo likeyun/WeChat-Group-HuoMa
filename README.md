@@ -50,6 +50,12 @@ https://mp.weixin.qq.com/s/mmWC65I2xYi4CHqmHTIrDg
 
 ![安装界面](https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716112614.png?raw=true)
 
+# 资源分享网
+
+网址：http://www.likeyun.cn <br/>
+说明：分享各类绿色软件、破解软件、PC软件工具、各类Android、IOS软件和工具、分享技术教程、手机电脑玩机小技巧、音乐资源、电影资源、学习教程资源、学习资料、服务器、虚拟主机、免费源码、域名分享、各类流量活动、限时活动、薅羊毛活动、各类办公软件、效率软件、系统工具等等资源，欢迎访问！
+
+
 # 新版管理后台
 ![后台首页](http://cdn.u1.huluxia.com/g4/M02/45/07/rBAAdl9fOpWAa7maAABP25x0-4c033.png)
 ![后台首页](http://cdn.u1.huluxia.com/g4/M03/45/07/rBAAdl9fOjeAAWTrAABSvj_rakU797.png)
