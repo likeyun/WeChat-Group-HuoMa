@@ -48,7 +48,7 @@ https://mp.weixin.qq.com/s/mmWC65I2xYi4CHqmHTIrDg
 
 只需要输入数据库和管理员相关信息，即可快速安装，如果安装失败，请检查数据库配置是否填写正确，如果您的服务器没有创建文件的权限，请在安装前给予777权限。
 
-![安装界面](https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716112614.png?raw=true)
+![安装界面](https://raw.sevencdn.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716112614.png?raw=true)
 
 # 资源分享网
 
@@ -63,21 +63,21 @@ https://mp.weixin.qq.com/s/mmWC65I2xYi4CHqmHTIrDg
 ![后台首页](http://cdn.u1.huluxia.com/g4/M00/45/07/rBAAdl9fOnuAGvUsAABPlsWaufc162.png)
 
 # 后台界面
-![后台首页](https://github.com/likeyun/TANKING/blob/master/20200716-add.png)
-![分享群活码](https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716113948.png)
+![后台首页](https://raw.sevencdn.com/likeyun/TANKING/blob/master/20200716-add.png)
+![分享群活码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200716113948.png)
 
 # 添加群活码界面
-![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113531.png)
-![添加群活码](https://github.com/likeyun/TANKING/blob/master/20200716113652.png)
+![添加群活码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/20200716113531.png)
+![添加群活码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/20200716113652.png)
 
 # 设置落地页域名
-![添加群活码](https://github.com/likeyun/TANKING/blob/master/yuming_set.png?raw=true)
+![添加群活码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/yuming_set.png?raw=true)
 
 # 创建渠道码
 什么是渠道码？就是一个二维码，相比于其他二维码，渠道码可以统计访问次数，可以创建不同的渠道码，用于投放在不同的场所，可以统计不同渠道的效果，也可以在不变更二维码的前提下修改文本或跳转的链接，可以理解为文本活码和网址活码。
 
-![添加渠道码](https://github.com/likeyun/TANKING/blob/master/guanli_qudaoma.png?raw=true)
-![添加渠道码](https://github.com/likeyun/TANKING/blob/master/creat_qudaoma.png)
+![添加渠道码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/guanli_qudaoma.png?raw=true)
+![添加渠道码](https://raw.sevencdn.com/likeyun/TANKING/blob/master/creat_qudaoma.png)
 
 # 活动码
 活动码可以创建一个活动介绍页面，引导用户参与活动，当活动结束后，还可以将活动码设置为活动结束并留下联系方式，进一步引流。
@@ -97,7 +97,7 @@ http://www.xxx.com/huoma/user
 ```
 
 # 赞赏
-<img src="https://github.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
+<img src="https://raw.sevencdn.com/likeyun/TANKING/blob/master/wxzhanshang.jpg?raw=true" width="300"/>
 
 # 温馨提示
 以上图片如果不显示，可以尝试给你电脑的host文件添加以下ip，添加后保存，再刷新页面。
