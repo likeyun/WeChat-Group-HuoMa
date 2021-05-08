@@ -6,7 +6,8 @@
 <img src="https://raw.sevencdn.com/likeyun/TANKING/master/timg.jpg" width="700" />
 
 # 作者博客
-http://www.likeyun.cn/
+https://www.likeyun.cn/
+备用地址：http://1-url.cn
 
 # 遇到问题请加入交流群
 http://pic.iask.cn/fimg/805445297649.jpg
