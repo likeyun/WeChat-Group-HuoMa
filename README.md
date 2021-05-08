@@ -7,7 +7,7 @@
 
 # 作者博客
 https://www.likeyun.cn/
-备用地址：http://1-url.cn
+备用地址：http://1-url.cn/pc/
 
 # 遇到问题请加入交流群
 http://pic.iask.cn/fimg/805445297649.jpg
