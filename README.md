@@ -5,6 +5,17 @@
 <img src="https://raw.sevencdn.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201214175839.png" />
 <img src="https://raw.sevencdn.com/likeyun/TANKING/master/timg.jpg" width="700" />
 
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+# 该版本已停止维护
+新版本：https://github.com/likeyun/liKeYun_Huoma
+
+
 # 作者博客
 https://www.likeyun.cn/
 备用地址：http://1-url.cn/pc/
