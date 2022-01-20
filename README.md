@@ -21,7 +21,7 @@ https://www.likeyun.cn/
 备用地址：http://1-url.cn/pc/
 
 # 遇到问题请加入交流群
-http://pic.iask.cn/fimg/805445297649.jpg
+http://inews.gtimg.com/newsapp_bt/0/14446103724/641
 
 # 更新说明（重要）
 上面是v5.1.0版本的代码，如果要下载v5.2.0代码请点击下面链接下载即可<br/>
