@@ -15,13 +15,8 @@
 # 该版本已停止维护
 新版本：https://github.com/likeyun/liKeYun_Huoma
 
-
-# 作者博客
-https://www.likeyun.cn/
-备用地址：http://1-url.cn/pc/
-
-# 遇到问题请加入交流群
-http://inews.gtimg.com/newsapp_bt/0/14446103724/641
+交流、解决问题、定制、学习等可以加入我们的开发者交流群
+https://sc01.alicdn.com/kf/H574da7b723cd4c088b082ab93ab6eb8dV.png
 
 # 更新说明（重要）
 上面是v5.1.0版本的代码，如果要下载v5.2.0代码请点击下面链接下载即可<br/>
